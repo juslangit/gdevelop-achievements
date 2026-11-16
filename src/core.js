@@ -57,6 +57,8 @@ if (!game.__achievements) {
     pending: [], // unlocked during this frame
     just: [], // unlocked during the previous frame: what "just unlocked" sees
     last: '',
+    toastPending: false, // a toast started during this frame
+    toastJust: false, // a toast started during the previous frame: what "a toast just appeared" sees
     queue: [], // toasts waiting to be shown
     toast: null, // { id, start }
     view: null,
@@ -64,7 +66,7 @@ if (!game.__achievements) {
     style: {
       enabled: true, position: 'Top', duration: 3,
       bg: 0x1e2233, fg: 0xffffff, accent: 0xffc83d, label: 'Achievement unlocked',
-      sound: '', volume: 100, secretTitle: 'Secret achievement', secretDesc: '???',
+      secretTitle: 'Secret achievement', secretDesc: '???',
     },
 
     load() {
@@ -165,6 +167,8 @@ if (!game.__achievements) {
     preEvents() {
       this.just = this.pending;
       this.pending = [];
+      this.toastJust = this.toastPending;
+      this.toastPending = false;
     },
 
     // ---------------------------------------------------------------- the toast
@@ -243,9 +247,7 @@ if (!game.__achievements) {
       const now = performance.now();
       if (!this.toast && this.queue.length) {
         this.toast = { id: this.queue.shift(), start: now };
-        if (this.style.sound) {
-          try { gdjs.evtTools.sound.playSound(scene, this.style.sound, false, this.style.volume, 1); } catch (e) {}
-        }
+        this.toastPending = true;
       }
       if (!this.toast) { this.destroyView(); return; }
       if (!this.view || this.view.scene !== scene) this.buildView(scene);

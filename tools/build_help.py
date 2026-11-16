@@ -143,7 +143,7 @@ footer {{ border-top:1px solid var(--line); margin-top:3em; padding:24px 0 40px;
   <p>A toast slides in when an achievement is unlocked. It needs no object in your scene: the extension draws it on its own layer, above everything else, in 2D and 3D games. When several achievements unlock together, their toasts are shown one after another.</p>
   <ul>
     <li><b>Icon</b>: <span class=sentence>Use image <var>coin.png</var> as the icon of achievement <var>"coin_hunter"</var></span>. Without an icon, the toast shows a star.</li>
-    <li><b>Sound</b>: <span class=sentence>Play <var>unlock.ogg</var> (volume: <var>70</var>) when a toast appears</span></li>
+    <li><b>Sound</b>: add an event with the condition <span class=sentence>A toast just appeared</span> and GDevelop's action <b>Play a sound</b>. The condition is true for one frame as each toast starts, so the sound plays with every toast, even when several are queued.</li>
     <li><b>Position</b>: top, bottom, or one of the four corners. <b>Duration</b> in seconds. <b>Colors</b>: background, text, and the accent used for the border, star and label.</li>
     <li><b>Label</b>: the small text above the title, “Achievement unlocked” by default. Change it to translate the toast.</li>
     <li><b>Show toasts: no</b> turns the toast off, to show your own instead with “Any achievement was just unlocked”.</li>

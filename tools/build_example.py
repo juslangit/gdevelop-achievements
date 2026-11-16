@@ -131,7 +131,8 @@ def events():
         ]),
         group("Toast settings", [
             comment("The toast works with no setup. These actions change its look and sound."),
-            ev([scene_start()], [ach("SetToastSound", SOUND, 70)]),
+            comment("Play a sound with every toast: \"A toast just appeared\" is true for one frame when a toast starts."),
+            ev([ach_cond("ToastJustAppeared")], [A("PlaySound", "", SOUND, "", 70, 1)]),
             ev([key_just("b")], [ach("SetToastPosition", q("Bottom-right"))]),
             ev([key_just("m")], [ach("SetToastLabel", q("Pencapaian dibuka")),
                                  ach("SetToastColors", q("20;60;40"), q("255;255;255"), q("120;230;140"))]),

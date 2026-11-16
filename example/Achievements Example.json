@@ -1078,13 +1078,26 @@
               "comment": "The toast works with no setup. These actions change its look and sound."
             },
             {
+              "type": "BuiltinCommonInstructions::Comment",
+              "color": {
+                "b": 109,
+                "g": 230,
+                "r": 255,
+                "textB": 0,
+                "textG": 0,
+                "textR": 0
+              },
+              "comment": "Play a sound with every toast: \"A toast just appeared\" is true for one frame when a toast starts."
+            },
+            {
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
                   "type": {
-                    "value": "SceneJustBegins"
+                    "value": "Achievements::ToastJustAppeared"
                   },
                   "parameters": [
+                    "",
                     ""
                   ]
                 }
@@ -1092,13 +1105,14 @@
               "actions": [
                 {
                   "type": {
-                    "value": "Achievements::SetToastSound"
+                    "value": "PlaySound"
                   },
                   "parameters": [
                     "",
                     "sfx_unlock.ogg",
+                    "",
                     "70",
-                    ""
+                    "1"
                   ]
                 }
               ]
@@ -1293,7 +1307,7 @@
         "- Unlock it in one go, or add progress (\"collect 10 coins\") and it unlocks when the goal is reached.",
         "- Progress is saved on the player's device automatically.",
         "- Secret achievements hide their title and description until they are unlocked.",
-        "- A toast slides in when an achievement is unlocked, with the achievement's own icon and a sound if you want. Change its position, colors, duration and label (to translate it).",
+        "- A toast slides in when an achievement is unlocked, with the achievement's own icon (and a sound, with the condition \"A toast just appeared\"). Change its position, colors, duration and label (to translate it).",
         "- Expressions give the title, description, progress and goal of each achievement, so you can build your own achievements screen.",
         "",
         "Achievements are local to the device: they are not linked to Steam, Game Jolt or another platform."
@@ -1380,6 +1394,8 @@
                 "    pending: [], // unlocked during this frame",
                 "    just: [], // unlocked during the previous frame: what \"just unlocked\" sees",
                 "    last: '',",
+                "    toastPending: false, // a toast started during this frame",
+                "    toastJust: false, // a toast started during the previous frame: what \"a toast just appeared\" sees",
                 "    queue: [], // toasts waiting to be shown",
                 "    toast: null, // { id, start }",
                 "    view: null,",
@@ -1387,7 +1403,7 @@
                 "    style: {",
                 "      enabled: true, position: 'Top', duration: 3,",
                 "      bg: 0x1e2233, fg: 0xffffff, accent: 0xffc83d, label: 'Achievement unlocked',",
-                "      sound: '', volume: 100, secretTitle: 'Secret achievement', secretDesc: '???',",
+                "      secretTitle: 'Secret achievement', secretDesc: '???',",
                 "    },",
                 "",
                 "    load() {",
@@ -1488,6 +1504,8 @@
                 "    preEvents() {",
                 "      this.just = this.pending;",
                 "      this.pending = [];",
+                "      this.toastJust = this.toastPending;",
+                "      this.toastPending = false;",
                 "    },",
                 "",
                 "    // ---------------------------------------------------------------- the toast",
@@ -1566,9 +1584,7 @@
                 "      const now = performance.now();",
                 "      if (!this.toast && this.queue.length) {",
                 "        this.toast = { id: this.queue.shift(), start: now };",
-                "        if (this.style.sound) {",
-                "          try { gdjs.evtTools.sound.playSound(scene, this.style.sound, false, this.style.volume, 1); } catch (e) {}",
-                "        }",
+                "        this.toastPending = true;",
                 "      }",
                 "      if (!this.toast) { this.destroyView(); return; }",
                 "      if (!this.view || this.view.scene !== scene) this.buildView(scene);",
@@ -2526,39 +2542,52 @@
           "objectGroups": []
         },
         {
-          "description": "Play a sound when a toast appears. Leave the sound empty for no sound.",
-          "fullName": "Toast sound",
-          "functionType": "Action",
+          "description": "Check if a toast just appeared on screen. This is true for one frame only: use it with the action \"Play a sound\" to play a sound with every toast.",
+          "fullName": "A toast just appeared",
+          "functionType": "Condition",
           "group": "Toast",
-          "name": "SetToastSound",
-          "sentence": "Play _PARAM1_ (volume: _PARAM2_) when a toast appears",
+          "name": "ToastJustAppeared",
+          "sentence": "A toast just appeared",
           "events": [
             {
               "type": "BuiltinCommonInstructions::JsCode",
               "inlineCode": [
                 "const A = runtimeScene.getGame().__achievements;",
                 "if (!A) return;",
-                "A.style.sound = String(eventsFunctionContext.getArgument(\"Sound\")); A.style.volume = Math.max(0, Math.min(100, Number(eventsFunctionContext.getArgument(\"Volume\"))));"
+                "eventsFunctionContext.returnValue = A.toastJust;"
               ],
               "parameterObjects": "",
               "useStrict": true,
               "eventsSheetExpanded": false
             }
           ],
-          "parameters": [
+          "parameters": [],
+          "objectGroups": []
+        },
+        {
+          "description": "The identifier of the achievement shown in the toast (empty when no toast is shown).",
+          "fullName": "Achievement shown in the toast",
+          "functionType": "StringExpression",
+          "group": "Toast",
+          "name": "ToastAchievement",
+          "sentence": "",
+          "events": [
             {
-              "description": "Sound",
-              "name": "Sound",
-              "type": "audioResource"
-            },
-            {
-              "defaultValue": "100",
-              "description": "Volume (0 to 100)",
-              "name": "Volume",
-              "optional": true,
-              "type": "expression"
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const A = runtimeScene.getGame().__achievements;",
+                "if (!A) return;",
+                "eventsFunctionContext.returnValue = A.toast ? A.toast.id : '';"
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
             }
           ],
+          "expressionType": {
+            "type": "string"
+          },
+          "parameters": [],
           "objectGroups": []
         },
         {
@@ -2706,7 +2735,10 @@
                 "functionName": "SetToastLabel"
               },
               {
-                "functionName": "SetToastSound"
+                "functionName": "ToastJustAppeared"
+              },
+              {
+                "functionName": "ToastAchievement"
               },
               {
                 "functionName": "ShowToast"
