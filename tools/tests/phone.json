@@ -1,0 +1,5 @@
+[{"device": [390, 844], "touch": true},
+ {"until": "window.__game && window.__game.__achievements && td.name()==='Example'", "timeout": 20000},
+ {"wait": 300},
+ {"eval": "window.__game.__achievements.queue.push('completionist'); td.res()"},
+ {"wait": 900}, {"shot": "phone"}]

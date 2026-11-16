@@ -1,0 +1,249 @@
+[
+ {
+  "device": [
+   1280,
+   720
+  ]
+ },
+ {
+  "until": "window.__game && window.__game.__achievements && td.name()==='Example'",
+  "timeout": 20000
+ },
+ {
+  "wait": 500
+ },
+ {
+  "eval": "(()=>{const a=window.__game.__achievements; return ['start', a.unlockedCount()+'/'+a.order.length, a.order.map(i=>i+':'+a.progress(i)+(a.isUnlocked(i)?'U':'')).join(' '), 'queue='+a.queue.join(','), 'toast='+(a.toast&&a.toast.id), td.texts('LastText')[0]]})()"
+ },
+ {
+  "hold": [
+   "Space",
+   60
+  ]
+ },
+ {
+  "wait": 450
+ },
+ {
+  "eval": "(()=>{const a=window.__game.__achievements; return ['after 1 jump', a.unlockedCount()+'/'+a.order.length, a.order.map(i=>i+':'+a.progress(i)+(a.isUnlocked(i)?'U':'')).join(' '), 'queue='+a.queue.join(','), 'toast='+(a.toast&&a.toast.id), td.texts('LastText')[0]]})()"
+ },
+ {
+  "eval": "(()=>{const n=[];td.scene().getAllLayerNames(n);return n})()"
+ },
+ {
+  "shot": "toast-top"
+ },
+ {
+  "hold": [
+   "Space",
+   60
+  ]
+ },
+ {
+  "wait": 60
+ },
+ {
+  "hold": [
+   "Space",
+   60
+  ]
+ },
+ {
+  "wait": 60
+ },
+ {
+  "hold": [
+   "Space",
+   60
+  ]
+ },
+ {
+  "wait": 60
+ },
+ {
+  "hold": [
+   "Space",
+   60
+  ]
+ },
+ {
+  "wait": 60
+ },
+ {
+  "hold": [
+   "Space",
+   60
+  ]
+ },
+ {
+  "wait": 60
+ },
+ {
+  "hold": [
+   "Space",
+   60
+  ]
+ },
+ {
+  "wait": 60
+ },
+ {
+  "hold": [
+   "Space",
+   60
+  ]
+ },
+ {
+  "wait": 60
+ },
+ {
+  "hold": [
+   "Space",
+   60
+  ]
+ },
+ {
+  "wait": 60
+ },
+ {
+  "hold": [
+   "Space",
+   60
+  ]
+ },
+ {
+  "wait": 60
+ },
+ {
+  "hold": [
+   "c",
+   60
+  ]
+ },
+ {
+  "wait": 60
+ },
+ {
+  "hold": [
+   "c",
+   60
+  ]
+ },
+ {
+  "wait": 60
+ },
+ {
+  "hold": [
+   "c",
+   60
+  ]
+ },
+ {
+  "wait": 60
+ },
+ {
+  "hold": [
+   "c",
+   60
+  ]
+ },
+ {
+  "wait": 60
+ },
+ {
+  "hold": [
+   "c",
+   60
+  ]
+ },
+ {
+  "wait": 60
+ },
+ {
+  "eval": "(()=>{const a=window.__game.__achievements; return ['after 10 jumps + 5 coins', a.unlockedCount()+'/'+a.order.length, a.order.map(i=>i+':'+a.progress(i)+(a.isUnlocked(i)?'U':'')).join(' '), 'queue='+a.queue.join(','), 'toast='+(a.toast&&a.toast.id), td.texts('LastText')[0]]})()"
+ },
+ {
+  "until": "window.__game.__achievements.isUnlocked('completionist')",
+  "timeout": 20000
+ },
+ {
+  "eval": "(()=>{const a=window.__game.__achievements; return ['after waiting', a.unlockedCount()+'/'+a.order.length, a.order.map(i=>i+':'+a.progress(i)+(a.isUnlocked(i)?'U':'')).join(' '), 'queue='+a.queue.join(','), 'toast='+(a.toast&&a.toast.id), td.texts('LastText')[0]]})()"
+ },
+ {
+  "eval": "localStorage.getItem('GDJS_Achievements_Achievements Example')"
+ },
+ {
+  "until": "!window.__game.__achievements.toast && !window.__game.__achievements.queue.length",
+  "timeout": 30000
+ },
+ {
+  "wait": 300
+ },
+ {
+  "shot": "list"
+ },
+ {
+  "eval": "location.reload(); 1"
+ },
+ {
+  "until": "window.__game && window.__game.__achievements && td.name()==='Example'",
+  "timeout": 20000
+ },
+ {
+  "wait": 800
+ },
+ {
+  "eval": "(()=>{const a=window.__game.__achievements; return ['after reload', a.unlockedCount()+'/'+a.order.length, a.order.map(i=>i+':'+a.progress(i)+(a.isUnlocked(i)?'U':'')).join(' '), 'queue='+a.queue.join(','), 'toast='+(a.toast&&a.toast.id), td.texts('LastText')[0]]})()"
+ },
+ {
+  "hold": [
+   "m",
+   60
+  ]
+ },
+ {
+  "wait": 50
+ },
+ {
+  "eval": "window.__game.__achievements.queue.push('coin_hunter'); 1"
+ },
+ {
+  "wait": 900
+ },
+ {
+  "shot": "toast-malay"
+ },
+ {
+  "hold": [
+   "b",
+   60
+  ]
+ },
+ {
+  "wait": 4200
+ },
+ {
+  "eval": "window.__game.__achievements.queue.push('jumper'); 1"
+ },
+ {
+  "wait": 900
+ },
+ {
+  "shot": "toast-bottom-right"
+ },
+ {
+  "hold": [
+   "r",
+   60
+  ]
+ },
+ {
+  "wait": 600
+ },
+ {
+  "eval": "(()=>{const a=window.__game.__achievements; return ['after reset', a.unlockedCount()+'/'+a.order.length, a.order.map(i=>i+':'+a.progress(i)+(a.isUnlocked(i)?'U':'')).join(' '), 'queue='+a.queue.join(','), 'toast='+(a.toast&&a.toast.id), td.texts('LastText')[0]]})()"
+ },
+ {
+  "eval": "localStorage.getItem('GDJS_Achievements_Achievements Example')"
+ }
+]

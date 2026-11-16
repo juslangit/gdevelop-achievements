@@ -1,0 +1,7 @@
+.env
+.DS_Store
+build/
+tools/node_modules
+tools/node_modules.nosync/
+.playwright-cli/
+__pycache__/

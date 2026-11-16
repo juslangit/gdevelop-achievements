@@ -1,0 +1,2269 @@
+{
+  "firstLayout": "Example",
+  "gdVersion": {
+    "build": 287,
+    "major": 5,
+    "minor": 6,
+    "revision": 0
+  },
+  "properties": {
+    "adaptGameResolutionAtRuntime": true,
+    "antialiasingMode": "MSAA",
+    "antialisingEnabledOnMobile": false,
+    "folderProject": false,
+    "orientation": "landscape",
+    "packageName": "com.example.achievements",
+    "pixelsRounding": false,
+    "projectUuid": "75e26880-6653-5b4b-8c0f-db371bde5f1e",
+    "scaleMode": "linear",
+    "sizeOnStartupMode": "adaptWidth",
+    "templateSlug": "",
+    "version": "1.0.0",
+    "name": "Achievements Example",
+    "description": "Example for the Achievements extension.",
+    "author": "",
+    "windowWidth": 1280,
+    "windowHeight": 720,
+    "latestCompilationDirectory": "",
+    "maxFPS": 60,
+    "minFPS": 20,
+    "verticalSync": false,
+    "platformSpecificAssets": {},
+    "loadingScreen": {
+      "backgroundColor": 1450536,
+      "backgroundFadeInDuration": 0.2,
+      "backgroundImageResourceName": "",
+      "gdevelopLogoStyle": "light",
+      "logoAndProgressFadeInDuration": 0.2,
+      "logoAndProgressLogoFadeInDelay": 0,
+      "minDuration": 0,
+      "progressBarColor": 16762941,
+      "progressBarHeight": 8,
+      "progressBarMaxWidth": 200,
+      "progressBarMinWidth": 40,
+      "progressBarWidthPercent": 40,
+      "showGDevelopSplash": false,
+      "showProgressBar": true
+    },
+    "watermark": {
+      "placement": "bottom-left",
+      "showWatermark": true
+    },
+    "authorIds": [],
+    "authorUsernames": [],
+    "categories": [],
+    "playableDevices": [
+      "keyboard"
+    ],
+    "extensionProperties": [],
+    "platforms": [
+      {
+        "name": "GDevelop JS platform"
+      }
+    ],
+    "currentPlatform": "GDevelop JS platform"
+  },
+  "resources": {
+    "resources": []
+  },
+  "objects": [],
+  "objectsFolderStructure": {
+    "folderName": "__ROOT"
+  },
+  "objectsGroups": [],
+  "variables": [],
+  "layouts": [
+    {
+      "b": 40,
+      "disableInputWhenNotFocused": true,
+      "mangledName": "Example",
+      "name": "Example",
+      "r": 22,
+      "renderer3DWorldScale": 100,
+      "standardSortMethod": true,
+      "stopSoundsOnStartup": true,
+      "title": "",
+      "v": 34,
+      "uiSettings": {},
+      "objectsGroups": [],
+      "variables": [
+        {
+          "name": "i",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "list",
+          "type": "string",
+          "value": ""
+        },
+        {
+          "name": "mark",
+          "type": "string",
+          "value": ""
+        }
+      ],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "TitleText",
+          "persistentUuid": "707f600e-e732-55cb-bb00-db9e34d8f11c",
+          "width": 0,
+          "x": 60,
+          "y": 50,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "HelpText",
+          "persistentUuid": "3eaa0bfd-737e-53e2-ac5b-89b3e84698a8",
+          "width": 0,
+          "x": 60,
+          "y": 120,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "CountText",
+          "persistentUuid": "20b52e42-edb7-5254-9a67-20a36bc53d7f",
+          "width": 0,
+          "x": 60,
+          "y": 190,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "ListText",
+          "persistentUuid": "e3d095c8-fafc-5233-9602-feb79bb77727",
+          "width": 0,
+          "x": 60,
+          "y": 250,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "LastText",
+          "persistentUuid": "2e6b220e-28d1-56d1-8d76-bcab0b61caf3",
+          "width": 0,
+          "x": 60,
+          "y": 600,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        }
+      ],
+      "objects": [
+        {
+          "assetStoreId": "",
+          "bold": true,
+          "italic": false,
+          "name": "TitleText",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Achievements example",
+          "font": "",
+          "textAlignment": "left",
+          "characterSize": 44,
+          "color": {
+            "b": 61,
+            "g": 200,
+            "r": 255
+          },
+          "content": {
+            "bold": true,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "0;0;0",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "Achievements example",
+            "font": "",
+            "textAlignment": "left",
+            "verticalTextAlignment": "top",
+            "characterSize": 44,
+            "lineHeight": 0,
+            "color": "255;200;61"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "HelpText",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "SPACE  jump        C  find a coin        B  toasts at the bottom-right        M  toast in Malay        R  reset all",
+          "font": "",
+          "textAlignment": "left",
+          "characterSize": 20,
+          "color": {
+            "b": 220,
+            "g": 196,
+            "r": 190
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "0;0;0",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "SPACE  jump        C  find a coin        B  toasts at the bottom-right        M  toast in Malay        R  reset all",
+            "font": "",
+            "textAlignment": "left",
+            "verticalTextAlignment": "top",
+            "characterSize": 20,
+            "lineHeight": 0,
+            "color": "190;196;220"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "CountText",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "",
+          "font": "",
+          "textAlignment": "left",
+          "characterSize": 24,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "0;0;0",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "",
+            "font": "",
+            "textAlignment": "left",
+            "verticalTextAlignment": "top",
+            "characterSize": 24,
+            "lineHeight": 0,
+            "color": "255;255;255"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "ListText",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "",
+          "font": "",
+          "textAlignment": "left",
+          "characterSize": 24,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "0;0;0",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "",
+            "font": "",
+            "textAlignment": "left",
+            "verticalTextAlignment": "top",
+            "characterSize": 24,
+            "lineHeight": 0,
+            "color": "255;255;255"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "LastText",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "",
+          "font": "",
+          "textAlignment": "left",
+          "characterSize": 22,
+          "color": {
+            "b": 61,
+            "g": 200,
+            "r": 255
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "0;0;0",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "",
+            "font": "",
+            "textAlignment": "left",
+            "verticalTextAlignment": "top",
+            "characterSize": 22,
+            "lineHeight": 0,
+            "color": "255;200;61"
+          }
+        }
+      ],
+      "objectsFolderStructure": {
+        "folderName": "__ROOT",
+        "children": [
+          {
+            "objectName": "TitleText"
+          },
+          {
+            "objectName": "HelpText"
+          },
+          {
+            "objectName": "CountText"
+          },
+          {
+            "objectName": "ListText"
+          },
+          {
+            "objectName": "LastText"
+          }
+        ]
+      },
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "Achievements extension example. Every achievement is defined once, when the game starts. Progress is saved on this device, so it is still here when you play again (press R to reset)."
+        },
+        {
+          "colorB": 228,
+          "colorG": 176,
+          "colorR": 74,
+          "creationTime": 0,
+          "name": "Define the achievements",
+          "source": "",
+          "type": "BuiltinCommonInstructions::Group",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "SceneJustBegins"
+                  },
+                  "parameters": [
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Achievements::DefineAchievement"
+                  },
+                  "parameters": [
+                    "",
+                    "\"first_step\"",
+                    "\"First Step\"",
+                    "\"Press SPACE for the first time.\"",
+                    "1",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Achievements::DefineAchievement"
+                  },
+                  "parameters": [
+                    "",
+                    "\"jumper\"",
+                    "\"Jumper\"",
+                    "\"Jump 10 times.\"",
+                    "10",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Achievements::DefineAchievement"
+                  },
+                  "parameters": [
+                    "",
+                    "\"coin_hunter\"",
+                    "\"Coin Hunter\"",
+                    "\"Find 5 coins (press C).\"",
+                    "5",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Achievements::DefineAchievement"
+                  },
+                  "parameters": [
+                    "",
+                    "\"patience\"",
+                    "\"Patience\"",
+                    "\"Stay in the game for 15 seconds.\"",
+                    "15",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Achievements::DefineAchievement"
+                  },
+                  "parameters": [
+                    "",
+                    "\"completionist\"",
+                    "\"Completionist\"",
+                    "\"Unlock every other achievement.\"",
+                    "4",
+                    ""
+                  ]
+                }
+              ]
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "colorB": 228,
+          "colorG": 176,
+          "colorR": 74,
+          "creationTime": 0,
+          "name": "Unlock and add progress",
+          "source": "",
+          "type": "BuiltinCommonInstructions::Group",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Comment",
+              "color": {
+                "b": 109,
+                "g": 230,
+                "r": 255,
+                "textB": 0,
+                "textG": 0,
+                "textR": 0
+              },
+              "comment": "Unlock an achievement in one go, or add progress: it unlocks when the progress reaches the goal."
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextJustPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Space\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Achievements::Unlock"
+                  },
+                  "parameters": [
+                    "",
+                    "\"first_step\"",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Achievements::AddProgress"
+                  },
+                  "parameters": [
+                    "",
+                    "\"jumper\"",
+                    "1",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextJustPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"c\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Achievements::AddProgress"
+                  },
+                  "parameters": [
+                    "",
+                    "\"coin_hunter\"",
+                    "1",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Comment",
+              "color": {
+                "b": 109,
+                "g": 230,
+                "r": 255,
+                "textB": 0,
+                "textG": 0,
+                "textR": 0
+              },
+              "comment": "Set the progress from any number: here the time spent in the scene, and how many are unlocked."
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Achievements::SetProgress"
+                  },
+                  "parameters": [
+                    "",
+                    "\"patience\"",
+                    "floor(TimeFromStart())",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Achievements::SetProgress"
+                  },
+                  "parameters": [
+                    "",
+                    "\"completionist\"",
+                    "Achievements::UnlockedCount()",
+                    ""
+                  ]
+                }
+              ]
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "colorB": 228,
+          "colorG": 176,
+          "colorR": 74,
+          "creationTime": 0,
+          "name": "React to an unlock",
+          "source": "",
+          "type": "BuiltinCommonInstructions::Group",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Comment",
+              "color": {
+                "b": 109,
+                "g": 230,
+                "r": 255,
+                "textB": 0,
+                "textG": 0,
+                "textR": 0
+              },
+              "comment": "\"Any achievement was just unlocked\" is true for one frame: play a sound or give a reward here."
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Achievements::AnyJustUnlocked"
+                  },
+                  "parameters": [
+                    "",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "LastText",
+                    "Text",
+                    "=",
+                    "\"Last unlocked: \" + Achievements::Title(Achievements::LastUnlocked())"
+                  ]
+                }
+              ]
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "colorB": 228,
+          "colorG": 176,
+          "colorR": 74,
+          "creationTime": 0,
+          "name": "Achievements screen",
+          "source": "",
+          "type": "BuiltinCommonInstructions::Group",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Comment",
+              "color": {
+                "b": 109,
+                "g": 230,
+                "r": 255,
+                "textB": 0,
+                "textG": 0,
+                "textR": 0
+              },
+              "comment": "Build the list with a Repeat event: IdAt(i) gives the identifier of each achievement."
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "i",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetStringVariable"
+                  },
+                  "parameters": [
+                    "list",
+                    "=",
+                    "\"\""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Repeat",
+              "repeatExpression": "Achievements::Count()",
+              "conditions": [],
+              "actions": [],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "Achievements::IsUnlocked"
+                      },
+                      "parameters": [
+                        "",
+                        "Achievements::IdAt(i)",
+                        ""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetStringVariable"
+                      },
+                      "parameters": [
+                        "mark",
+                        "=",
+                        "\"[X]  \""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "inverted": true,
+                        "value": "Achievements::IsUnlocked"
+                      },
+                      "parameters": [
+                        "",
+                        "Achievements::IdAt(i)",
+                        ""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetStringVariable"
+                      },
+                      "parameters": [
+                        "mark",
+                        "=",
+                        "\"[  ]  \""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetStringVariable"
+                      },
+                      "parameters": [
+                        "list",
+                        "=",
+                        "list + mark + Achievements::Title(Achievements::IdAt(i)) + \"  -  \" + Achievements::Description(Achievements::IdAt(i)) + \"  (\" + ToString(Achievements::Progress(Achievements::IdAt(i))) + \" / \" + ToString(Achievements::Goal(Achievements::IdAt(i))) + \")\" + NewLine()"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetNumberVariable"
+                      },
+                      "parameters": [
+                        "i",
+                        "+",
+                        "1"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "ListText",
+                    "Text",
+                    "=",
+                    "list"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "CountText",
+                    "Text",
+                    "=",
+                    "\"Unlocked: \" + ToString(Achievements::UnlockedCount()) + \" / \" + ToString(Achievements::Count()) + \"      Jumps: \" + ToString(Achievements::Progress(\"jumper\")) + \"      Coins: \" + ToString(Achievements::Progress(\"coin_hunter\"))"
+                  ]
+                }
+              ]
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "colorB": 228,
+          "colorG": 176,
+          "colorR": 74,
+          "creationTime": 0,
+          "name": "Toast settings",
+          "source": "",
+          "type": "BuiltinCommonInstructions::Group",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Comment",
+              "color": {
+                "b": 109,
+                "g": 230,
+                "r": 255,
+                "textB": 0,
+                "textG": 0,
+                "textR": 0
+              },
+              "comment": "The toast works with no setup. These actions change its look."
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextJustPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"b\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Achievements::SetToastPosition"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Bottom-right\"",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextJustPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"m\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Achievements::SetToastLabel"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Pencapaian dibuka\"",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Achievements::SetToastColors"
+                  },
+                  "parameters": [
+                    "",
+                    "\"20;60;40\"",
+                    "\"255;255;255\"",
+                    "\"120;230;140\"",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextJustPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"r\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Achievements::ResetAll"
+                  },
+                  "parameters": [
+                    "",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Scene"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Example\"",
+                    ""
+                  ]
+                }
+              ]
+            }
+          ],
+          "parameters": []
+        }
+      ],
+      "layers": [
+        {
+          "ambientLightColorB": 200,
+          "ambientLightColorG": 200,
+          "ambientLightColorR": 200,
+          "camera2DPlaneMaxDrawingDistance": 5000,
+          "camera3DFarPlaneDistance": 10000,
+          "camera3DFieldOfView": 45,
+          "camera3DNearPlaneDistance": 3,
+          "cameraType": "",
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "isLocked": false,
+          "name": "",
+          "renderingType": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "behaviorsSharedData": [
+        {
+          "name": "Effect",
+          "type": "EffectCapability::EffectBehavior"
+        },
+        {
+          "name": "Opacity",
+          "type": "OpacityCapability::OpacityBehavior"
+        },
+        {
+          "name": "Scale",
+          "type": "ScalableCapability::ScalableBehavior"
+        },
+        {
+          "name": "Text",
+          "type": "TextContainerCapability::TextContainerBehavior"
+        }
+      ]
+    }
+  ],
+  "layoutsFolderStructure": {
+    "folderName": "__ROOT",
+    "children": [
+      {
+        "itemName": "Example"
+      }
+    ]
+  },
+  "externalEvents": [],
+  "externalEventsFolderStructure": {
+    "folderName": "__ROOT"
+  },
+  "testsFolderStructure": {
+    "folderName": "__ROOT"
+  },
+  "eventsFunctionsExtensions": [
+    {
+      "author": "Luqman Hakeem",
+      "category": "Game mechanic",
+      "dimension": "",
+      "extensionNamespace": "",
+      "fullName": "Achievements",
+      "gdevelopVersion": ">=5.5.222",
+      "helpPath": "",
+      "iconUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iI2ZmYzgzZCIgZD0iTTcgMmgxMHYyaDR2M2E1IDUgMCAwIDEtNC42IDVBNSA1IDAgMCAxIDEzIDE1djNoM3YzSDh2LTNoM3YtM2E1IDUgMCAwIDEtMy40LTNBNSA1IDAgMCAxIDMgN1Y0aDRWMnptMCA0SDV2MWEzIDMgMCAwIDAgMiAyLjhWNnptMTAgMHYzLjhBMyAzIDAgMCAwIDE5IDdWNmgtMnoiLz48L3N2Zz4=",
+      "name": "Achievements",
+      "previewIconUrl": "https://resources.gdevelop-app.com/assets/Icons/trophy-outline.svg",
+      "shortDescription": "Define achievements, unlock them or track their progress, save them on the device, and show a toast when one is unlocked.",
+      "version": "1.0.0",
+      "description": [
+        "Add achievements to your game, with no setup.",
+        "",
+        "- Define each achievement once, at the start of the first scene: an identifier, a title, a description and a goal.",
+        "- Unlock it in one go, or add progress (\"collect 10 coins\") and it unlocks when the goal is reached.",
+        "- Progress is saved on the player's device automatically.",
+        "- A toast slides in when an achievement is unlocked. Change its position, colors, duration and label (to translate it).",
+        "- Expressions give the title, description, progress and goal of each achievement, so you can build your own achievements screen.",
+        "",
+        "Achievements are local to the device: they are not linked to Steam, Game Jolt or another platform."
+      ],
+      "tags": [
+        "achievement",
+        "achievements",
+        "trophy",
+        "toast",
+        "progress",
+        "unlock",
+        "reward"
+      ],
+      "authorIds": [],
+      "dependencies": [],
+      "globalVariables": [],
+      "sceneVariables": [],
+      "eventsFunctions": [
+        {
+          "fullName": "",
+          "functionType": "Action",
+          "name": "onFirstSceneLoaded",
+          "sentence": "",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "// Achievements extension: the runtime core.",
+                "// build_extension.py pastes this file into the extension's \"onFirstSceneLoaded\" function.",
+                "// It runs once per game and keeps one Achievements object on the game, shared by every scene.",
+                "const game = runtimeScene.getGame();",
+                "if (!game.__achievements) {",
+                "  const LAYER = '__AchievementsToast';",
+                "  const props = game.getGameData().properties || {};",
+                "  // Each game keeps its own save, even when several games share one website.",
+                "  const KEY = 'GDJS_Achievements_' + (props.name || 'game');",
+                "",
+                "  const toColor = (s, fallback) => {",
+                "    s = String(s || '').trim();",
+                "    if (/^#?[0-9a-f]{6}$/i.test(s)) return parseInt(s.replace('#', ''), 16);",
+                "    const p = s.split(';').map(Number);",
+                "    if (p.length === 3 && p.every((n) => n >= 0 && n <= 255)) return (p[0] << 16) | (p[1] << 8) | p[2];",
+                "    return fallback;",
+                "  };",
+                "  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));",
+                "  const easeOut = (t) => 1 - Math.pow(1 - clamp(t, 0, 1), 3);",
+                "",
+                "  // PIXI v7 and v8 draw shapes differently; support both.",
+                "  const roundRect = (g, x, y, w, h, r, color, alpha) => {",
+                "    if (typeof g.roundRect === 'function' && typeof g.fill === 'function' && !g.beginFill) g.roundRect(x, y, w, h, r).fill({ color, alpha });",
+                "    else { g.beginFill(color, alpha); g.drawRoundedRect(x, y, w, h, r); g.endFill(); }",
+                "  };",
+                "  const circle = (g, x, y, r, color) => {",
+                "    if (typeof g.circle === 'function' && typeof g.fill === 'function' && !g.beginFill) g.circle(x, y, r).fill({ color });",
+                "    else { g.beginFill(color, 1); g.drawCircle(x, y, r); g.endFill(); }",
+                "  };",
+                "  const star = (g, x, y, R, color) => {",
+                "    const pts = [];",
+                "    for (let i = 0; i < 10; i++) {",
+                "      const a = -Math.PI / 2 + (i * Math.PI) / 5, r = i % 2 ? R * 0.45 : R;",
+                "      pts.push(x + Math.cos(a) * r, y + Math.sin(a) * r);",
+                "    }",
+                "    if (typeof g.poly === 'function' && typeof g.fill === 'function' && !g.beginFill) g.poly(pts).fill({ color });",
+                "    else { g.beginFill(color, 1); g.drawPolygon(pts); g.endFill(); }",
+                "  };",
+                "  const makeText = (style) => {",
+                "    try { return new PIXI.Text({ text: '', style }); } catch (e) { return new PIXI.Text('', style); }",
+                "  };",
+                "  // Cut a text with \"…\" until it fits in maxWidth.",
+                "  const fit = (t, str, maxWidth) => {",
+                "    t.text = str;",
+                "    let s = str;",
+                "    while (t.width > maxWidth && s.length > 1) {",
+                "      s = s.slice(0, -1);",
+                "      t.text = s.trimEnd() + '…';",
+                "    }",
+                "  };",
+                "",
+                "  const A = {",
+                "    defs: {}, // id -> { title, desc, goal }",
+                "    order: [], // ids, in the order they were defined",
+                "    data: null, // id -> { p: progress, u: unlocked, t: unlock time }, saved in localStorage",
+                "    pending: [], // unlocked during this frame",
+                "    just: [], // unlocked during the previous frame: what \"just unlocked\" sees",
+                "    last: '',",
+                "    queue: [], // toasts waiting to be shown",
+                "    toast: null, // { id, start }",
+                "    view: null,",
+                "    warned: {},",
+                "    style: {",
+                "      enabled: true, position: 'Top', duration: 3,",
+                "      bg: 0x1e2233, fg: 0xffffff, accent: 0xffc83d, label: 'Achievement unlocked',",
+                "    },",
+                "",
+                "    load() {",
+                "      if (this.data) return;",
+                "      this.data = {};",
+                "      try {",
+                "        const o = JSON.parse(localStorage.getItem(KEY) || '{}');",
+                "        if (o && typeof o === 'object' && !Array.isArray(o)) this.data = o;",
+                "      } catch (e) {}",
+                "    },",
+                "    save() {",
+                "      try { localStorage.setItem(KEY, JSON.stringify(this.data)); } catch (e) {}",
+                "    },",
+                "    entry(id) {",
+                "      this.load();",
+                "      const e = this.data[id];",
+                "      if (!e || typeof e !== 'object') this.data[id] = { p: 0, u: false, t: 0 };",
+                "      return this.data[id];",
+                "    },",
+                "    def(id) {",
+                "      if (!this.defs[id]) {",
+                "        if (!this.warned[id]) { this.warned[id] = true; console.warn('Achievements: \"' + id + '\" is used but was never defined. Use the action \"Define an achievement\" first.'); }",
+                "        return { title: id, desc: '', goal: 1 };",
+                "      }",
+                "      return this.defs[id];",
+                "    },",
+                "",
+                "    define(id, title, desc, goal) {",
+                "      id = String(id);",
+                "      if (!id) return;",
+                "      if (!this.defs[id]) this.order.push(id);",
+                "      this.defs[id] = { title: String(title || id), desc: String(desc || ''), goal: Math.max(1, Number(goal) || 1) };",
+                "      // A goal made smaller in an update unlocks it for players who already reached it.",
+                "      const e = this.entry(id);",
+                "      if (!e.u && e.p >= this.defs[id].goal) this.unlock(id);",
+                "    },",
+                "    unlock(id) {",
+                "      id = String(id);",
+                "      if (!id) return;",
+                "      const e = this.entry(id);",
+                "      if (e.u) return;",
+                "      e.u = true;",
+                "      e.t = Date.now();",
+                "      e.p = Math.max(Number(e.p) || 0, this.def(id).goal);",
+                "      this.save();",
+                "      this.pending.push(id);",
+                "      this.last = id;",
+                "      if (this.style.enabled) this.queue.push(id);",
+                "    },",
+                "    setProgress(id, value) {",
+                "      id = String(id);",
+                "      if (!id) return;",
+                "      const e = this.entry(id);",
+                "      if (e.u) return;",
+                "      e.p = Math.max(0, Number(value) || 0);",
+                "      if (e.p >= this.def(id).goal) this.unlock(id);",
+                "      else this.save();",
+                "    },",
+                "    addProgress(id, amount) {",
+                "      id = String(id);",
+                "      if (!id) return;",
+                "      this.setProgress(id, (Number(this.entry(id).p) || 0) + (Number(amount) || 0));",
+                "    },",
+                "    reset(id) {",
+                "      id = String(id);",
+                "      this.load();",
+                "      delete this.data[id];",
+                "      this.save();",
+                "      this.queue = this.queue.filter((q) => q !== id);",
+                "      if (this.toast && this.toast.id === id) this.toast = null;",
+                "    },",
+                "    resetAll() {",
+                "      this.data = {};",
+                "      this.save();",
+                "      this.queue = [];",
+                "      this.pending = [];",
+                "      this.just = [];",
+                "      this.last = '';",
+                "      this.toast = null;",
+                "    },",
+                "",
+                "    isUnlocked(id) { this.load(); const e = this.data[String(id)]; return !!(e && e.u); },",
+                "    progress(id) { this.load(); const e = this.data[String(id)]; return e ? Math.min(Number(e.p) || 0, this.def(String(id)).goal) : 0; },",
+                "    goal(id) { return this.def(String(id)).goal; },",
+                "    percent(id) { return Math.round((this.progress(id) / this.goal(id)) * 100); },",
+                "    unlockedCount() { return this.order.filter((id) => this.isUnlocked(id)).length; },",
+                "",
+                "    // Called before the events of every scene: last frame's unlocks become \"just unlocked\" for one frame.",
+                "    preEvents() {",
+                "      this.just = this.pending;",
+                "      this.pending = [];",
+                "    },",
+                "",
+                "    // ---------------------------------------------------------------- the toast",
+                "    layer(scene) {",
+                "      if (!scene.hasLayer(LAYER)) {",
+                "        scene.addLayer({",
+                "          name: LAYER, visibility: true, cameras: [], effects: [], isLightingLayer: false,",
+                "          followBaseLayerCamera: false, renderingType: '2d', cameraType: '',",
+                "          defaultCameraBehavior: 'top-left-anchored-if-never-moved',",
+                "          ambientLightColorR: 200, ambientLightColorG: 200, ambientLightColorB: 200,",
+                "        });",
+                "      }",
+                "      // Keep it above every other layer, including ones created later by events.",
+                "      const names = [];",
+                "      scene.getAllLayerNames(names);",
+                "      if (names[names.length - 1] !== LAYER) scene.setLayerIndex(LAYER, names.length - 1);",
+                "      return scene.getLayer(LAYER);",
+                "    },",
+                "    destroyView() {",
+                "      if (!this.view) return;",
+                "      const c = this.view.c;",
+                "      if (c.parent) c.parent.removeChild(c);",
+                "      c.destroy({ children: true });",
+                "      this.view = null;",
+                "    },",
+                "    buildView(scene) {",
+                "      this.destroyView();",
+                "      const layer = this.layer(scene);",
+                "      const c = new PIXI.Container();",
+                "      const bg = new PIXI.Graphics(), icon = new PIXI.Graphics();",
+                "      const font = 'Arial, Helvetica, sans-serif';",
+                "      const label = makeText({ fontFamily: font, fontWeight: 'bold', fontSize: 12 });",
+                "      const title = makeText({ fontFamily: font, fontWeight: 'bold', fontSize: 18 });",
+                "      const desc = makeText({ fontFamily: font, fontSize: 13 });",
+                "      c.addChild(bg, icon, label, title, desc);",
+                "      layer.getRendererObject().addChild(c);",
+                "      this.view = { scene, c, bg, icon, label, title, desc, key: '' };",
+                "    },",
+                "    layout(v, id, W, H) {",
+                "      const st = this.style, d = this.def(id);",
+                "      const s = clamp(H / 720, 0.7, 2.5);",
+                "      const w = Math.min(460 * s, W - 24 * s), h = 92 * s, pad = 14 * s, r = 26 * s;",
+                "      v.w = w; v.h = h; v.s = s;",
+                "      v.bg.clear(); v.icon.clear();",
+                "      roundRect(v.bg, 0, 0, w, h, 12 * s, st.accent, 1);",
+                "      roundRect(v.bg, 2 * s, 2 * s, w - 4 * s, h - 4 * s, 10 * s, st.bg, 1);",
+                "      circle(v.icon, pad + r, h / 2, r, st.accent);",
+                "      star(v.icon, pad + r, h / 2 + 1 * s, r * 0.62, st.bg);",
+                "      const x = pad + 2 * r + 12 * s, maxW = w - x - pad;",
+                "      for (const [t, size, color, alpha] of [[v.label, 14, st.accent, 1], [v.title, 22, st.fg, 1], [v.desc, 15, st.fg, 0.75]]) {",
+                "        t.style.fontSize = Math.round(size * s);",
+                "        t.style.fill = color;",
+                "        t.alpha = alpha;",
+                "        t.x = x;",
+                "      }",
+                "      fit(v.label, st.label, maxW);",
+                "      fit(v.title, d.title, maxW);",
+                "      fit(v.desc, d.desc, maxW);",
+                "      v.label.y = 13 * s; v.title.y = 32 * s; v.desc.y = 61 * s;",
+                "    },",
+                "    // Called after the events of every scene: shows the toasts one after another.",
+                "    postEvents(scene) {",
+                "      if (game.isInGameEdition && game.isInGameEdition()) return;",
+                "      const now = performance.now();",
+                "      if (!this.toast && this.queue.length) this.toast = { id: this.queue.shift(), start: now };",
+                "      if (!this.toast) { this.destroyView(); return; }",
+                "      if (!this.view || this.view.scene !== scene) this.buildView(scene);",
+                "      else this.layer(scene);",
+                "      const v = this.view, W = game.getGameResolutionWidth(), H = game.getGameResolutionHeight();",
+                "      const key = [this.toast.id, W, H, JSON.stringify(this.style)].join('|');",
+                "      if (v.key !== key) { this.layout(v, this.toast.id, W, H); v.key = key; }",
+                "      const IN = 350, OUT = 350, HOLD = Math.max(0, this.style.duration) * 1000, t = now - this.toast.start;",
+                "      if (t > IN + HOLD + OUT) { this.toast = null; this.destroyView(); return; }",
+                "      const k = t < IN ? easeOut(t / IN) : t < IN + HOLD ? 1 : 1 - easeOut((t - IN - HOLD) / OUT);",
+                "      const pos = this.style.position, m = 16 * v.s, bottom = /^Bottom/.test(pos);",
+                "      v.c.x = /left$/.test(pos) ? m : /right$/.test(pos) ? W - v.w - m : (W - v.w) / 2;",
+                "      const on = bottom ? H - v.h - m : m, off = bottom ? H + 4 : -v.h - 4;",
+                "      v.c.y = off + (on - off) * k;",
+                "    },",
+                "    setColors(bg, fg, accent) {",
+                "      this.style.bg = toColor(bg, this.style.bg);",
+                "      this.style.fg = toColor(fg, this.style.fg);",
+                "      this.style.accent = toColor(accent, this.style.accent);",
+                "    },",
+                "  };",
+                "  game.__achievements = A;",
+                "}",
+                ""
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "parameters": [],
+          "objectGroups": []
+        },
+        {
+          "fullName": "",
+          "functionType": "Action",
+          "name": "onScenePreEvents",
+          "sentence": "",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const A = runtimeScene.getGame().__achievements;",
+                "if (!A) return;",
+                "A.preEvents();"
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "parameters": [],
+          "objectGroups": []
+        },
+        {
+          "fullName": "",
+          "functionType": "Action",
+          "name": "onScenePostEvents",
+          "sentence": "",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const A = runtimeScene.getGame().__achievements;",
+                "if (!A) return;",
+                "A.postEvents(runtimeScene);"
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "parameters": [],
+          "objectGroups": []
+        },
+        {
+          "description": "Define an achievement: its title, description and goal. Do this at the start of the first scene, before unlocking anything. Use a goal of 1 for an achievement that unlocks in one go, or a bigger goal (like 10) for one that unlocks when its progress reaches it. Progress is saved on the player's device.",
+          "fullName": "Define an achievement",
+          "functionType": "Action",
+          "group": "Setup",
+          "name": "DefineAchievement",
+          "sentence": "Define achievement _PARAM1_: _PARAM2_ (goal: _PARAM4_)",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const A = runtimeScene.getGame().__achievements;",
+                "if (!A) return;",
+                "A.define(eventsFunctionContext.getArgument(\"Id\"), eventsFunctionContext.getArgument(\"Title\"), eventsFunctionContext.getArgument(\"Description\"), eventsFunctionContext.getArgument(\"Goal\"));"
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "parameters": [
+            {
+              "description": "Achievement identifier (for example: \"first_coin\")",
+              "name": "Id",
+              "type": "string"
+            },
+            {
+              "description": "Title",
+              "name": "Title",
+              "type": "string"
+            },
+            {
+              "description": "Description",
+              "name": "Description",
+              "type": "string"
+            },
+            {
+              "defaultValue": "1",
+              "description": "Goal (1 to unlock in one go)",
+              "name": "Goal",
+              "optional": true,
+              "type": "expression"
+            }
+          ],
+          "objectGroups": []
+        },
+        {
+          "description": "Lock an achievement again and set its progress back to 0.",
+          "fullName": "Reset an achievement",
+          "functionType": "Action",
+          "group": "Setup",
+          "name": "ResetAchievement",
+          "sentence": "Reset achievement _PARAM1_",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const A = runtimeScene.getGame().__achievements;",
+                "if (!A) return;",
+                "A.reset(eventsFunctionContext.getArgument(\"Id\"));"
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "parameters": [
+            {
+              "description": "Achievement identifier (for example: \"first_coin\")",
+              "name": "Id",
+              "type": "string"
+            }
+          ],
+          "objectGroups": []
+        },
+        {
+          "description": "Lock every achievement again and erase all saved progress. Useful for a \"reset progress\" button or while testing.",
+          "fullName": "Reset all achievements",
+          "functionType": "Action",
+          "group": "Setup",
+          "name": "ResetAll",
+          "sentence": "Reset all achievements",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const A = runtimeScene.getGame().__achievements;",
+                "if (!A) return;",
+                "A.resetAll();"
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "parameters": [],
+          "objectGroups": []
+        },
+        {
+          "description": "Unlock an achievement now. Nothing happens if it is already unlocked.",
+          "fullName": "Unlock an achievement",
+          "functionType": "Action",
+          "group": "Unlock and progress",
+          "name": "Unlock",
+          "sentence": "Unlock achievement _PARAM1_",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const A = runtimeScene.getGame().__achievements;",
+                "if (!A) return;",
+                "A.unlock(eventsFunctionContext.getArgument(\"Id\"));"
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "parameters": [
+            {
+              "description": "Achievement identifier (for example: \"first_coin\")",
+              "name": "Id",
+              "type": "string"
+            }
+          ],
+          "objectGroups": []
+        },
+        {
+          "description": "Add to an achievement's progress. It unlocks when the progress reaches its goal.",
+          "fullName": "Add progress to an achievement",
+          "functionType": "Action",
+          "group": "Unlock and progress",
+          "name": "AddProgress",
+          "sentence": "Add _PARAM2_ to the progress of achievement _PARAM1_",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const A = runtimeScene.getGame().__achievements;",
+                "if (!A) return;",
+                "A.addProgress(eventsFunctionContext.getArgument(\"Id\"), eventsFunctionContext.getArgument(\"Amount\"));"
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "parameters": [
+            {
+              "description": "Achievement identifier (for example: \"first_coin\")",
+              "name": "Id",
+              "type": "string"
+            },
+            {
+              "defaultValue": "1",
+              "description": "Amount to add",
+              "name": "Amount",
+              "optional": true,
+              "type": "expression"
+            }
+          ],
+          "objectGroups": []
+        },
+        {
+          "description": "Set an achievement's progress to a value (for example the best score or the level reached). It unlocks when the progress reaches its goal. Progress never goes down once the achievement is unlocked.",
+          "fullName": "Set the progress of an achievement",
+          "functionType": "Action",
+          "group": "Unlock and progress",
+          "name": "SetProgress",
+          "sentence": "Set the progress of achievement _PARAM1_ to _PARAM2_",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const A = runtimeScene.getGame().__achievements;",
+                "if (!A) return;",
+                "A.setProgress(eventsFunctionContext.getArgument(\"Id\"), eventsFunctionContext.getArgument(\"Value\"));"
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "parameters": [
+            {
+              "description": "Achievement identifier (for example: \"first_coin\")",
+              "name": "Id",
+              "type": "string"
+            },
+            {
+              "description": "Progress",
+              "name": "Value",
+              "type": "expression"
+            }
+          ],
+          "objectGroups": []
+        },
+        {
+          "description": "Check if an achievement is unlocked.",
+          "fullName": "Achievement is unlocked",
+          "functionType": "Condition",
+          "group": "Unlock and progress",
+          "name": "IsUnlocked",
+          "sentence": "Achievement _PARAM1_ is unlocked",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const A = runtimeScene.getGame().__achievements;",
+                "if (!A) return;",
+                "eventsFunctionContext.returnValue = A.isUnlocked(eventsFunctionContext.getArgument(\"Id\"));"
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "parameters": [
+            {
+              "description": "Achievement identifier (for example: \"first_coin\")",
+              "name": "Id",
+              "type": "string"
+            }
+          ],
+          "objectGroups": []
+        },
+        {
+          "description": "Check if an achievement was just unlocked. This is true for one frame only: use it to play a sound or give a reward.",
+          "fullName": "Achievement was just unlocked",
+          "functionType": "Condition",
+          "group": "Unlock and progress",
+          "name": "JustUnlocked",
+          "sentence": "Achievement _PARAM1_ was just unlocked",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const A = runtimeScene.getGame().__achievements;",
+                "if (!A) return;",
+                "eventsFunctionContext.returnValue = A.just.includes(String(eventsFunctionContext.getArgument(\"Id\")));"
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "parameters": [
+            {
+              "description": "Achievement identifier (for example: \"first_coin\")",
+              "name": "Id",
+              "type": "string"
+            }
+          ],
+          "objectGroups": []
+        },
+        {
+          "description": "Check if any achievement was just unlocked. This is true for one frame only. The expression LastUnlocked() tells which one.",
+          "fullName": "Any achievement was just unlocked",
+          "functionType": "Condition",
+          "group": "Unlock and progress",
+          "name": "AnyJustUnlocked",
+          "sentence": "Any achievement was just unlocked",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const A = runtimeScene.getGame().__achievements;",
+                "if (!A) return;",
+                "eventsFunctionContext.returnValue = A.just.length > 0;"
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "parameters": [],
+          "objectGroups": []
+        },
+        {
+          "description": "The progress of an achievement (0 up to its goal).",
+          "fullName": "Progress",
+          "functionType": "Expression",
+          "group": "Information",
+          "name": "Progress",
+          "sentence": "",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const A = runtimeScene.getGame().__achievements;",
+                "if (!A) return;",
+                "eventsFunctionContext.returnValue = A.progress(eventsFunctionContext.getArgument(\"Id\"));"
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "expressionType": {
+            "type": "expression"
+          },
+          "parameters": [
+            {
+              "description": "Achievement identifier (for example: \"first_coin\")",
+              "name": "Id",
+              "type": "string"
+            }
+          ],
+          "objectGroups": []
+        },
+        {
+          "description": "The goal of an achievement.",
+          "fullName": "Goal",
+          "functionType": "Expression",
+          "group": "Information",
+          "name": "Goal",
+          "sentence": "",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const A = runtimeScene.getGame().__achievements;",
+                "if (!A) return;",
+                "eventsFunctionContext.returnValue = A.goal(eventsFunctionContext.getArgument(\"Id\"));"
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "expressionType": {
+            "type": "expression"
+          },
+          "parameters": [
+            {
+              "description": "Achievement identifier (for example: \"first_coin\")",
+              "name": "Id",
+              "type": "string"
+            }
+          ],
+          "objectGroups": []
+        },
+        {
+          "description": "The progress of an achievement in percent (0 to 100). Handy for progress bars.",
+          "fullName": "Progress in percent",
+          "functionType": "Expression",
+          "group": "Information",
+          "name": "ProgressPercent",
+          "sentence": "",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const A = runtimeScene.getGame().__achievements;",
+                "if (!A) return;",
+                "eventsFunctionContext.returnValue = A.percent(eventsFunctionContext.getArgument(\"Id\"));"
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "expressionType": {
+            "type": "expression"
+          },
+          "parameters": [
+            {
+              "description": "Achievement identifier (for example: \"first_coin\")",
+              "name": "Id",
+              "type": "string"
+            }
+          ],
+          "objectGroups": []
+        },
+        {
+          "description": "The number of achievements defined.",
+          "fullName": "Number of achievements",
+          "functionType": "Expression",
+          "group": "Information",
+          "name": "Count",
+          "sentence": "",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const A = runtimeScene.getGame().__achievements;",
+                "if (!A) return;",
+                "eventsFunctionContext.returnValue = A.order.length;"
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "expressionType": {
+            "type": "expression"
+          },
+          "parameters": [],
+          "objectGroups": []
+        },
+        {
+          "description": "The number of defined achievements that are unlocked.",
+          "fullName": "Number of unlocked achievements",
+          "functionType": "Expression",
+          "group": "Information",
+          "name": "UnlockedCount",
+          "sentence": "",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const A = runtimeScene.getGame().__achievements;",
+                "if (!A) return;",
+                "eventsFunctionContext.returnValue = A.unlockedCount();"
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "expressionType": {
+            "type": "expression"
+          },
+          "parameters": [],
+          "objectGroups": []
+        },
+        {
+          "description": "The identifier of the achievement at a position (0 is the first one defined). Use it with a Repeat event to build an achievements screen.",
+          "fullName": "Achievement identifier by position",
+          "functionType": "StringExpression",
+          "group": "Information",
+          "name": "IdAt",
+          "sentence": "",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const A = runtimeScene.getGame().__achievements;",
+                "if (!A) return;",
+                "eventsFunctionContext.returnValue = A.order[Math.floor(Number(eventsFunctionContext.getArgument(\"Index\")))] || '';"
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "expressionType": {
+            "type": "string"
+          },
+          "parameters": [
+            {
+              "description": "Position (0 is the first achievement)",
+              "name": "Index",
+              "type": "expression"
+            }
+          ],
+          "objectGroups": []
+        },
+        {
+          "description": "The title of an achievement.",
+          "fullName": "Title",
+          "functionType": "StringExpression",
+          "group": "Information",
+          "name": "Title",
+          "sentence": "",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const A = runtimeScene.getGame().__achievements;",
+                "if (!A) return;",
+                "eventsFunctionContext.returnValue = A.def(String(eventsFunctionContext.getArgument(\"Id\"))).title;"
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "expressionType": {
+            "type": "string"
+          },
+          "parameters": [
+            {
+              "description": "Achievement identifier (for example: \"first_coin\")",
+              "name": "Id",
+              "type": "string"
+            }
+          ],
+          "objectGroups": []
+        },
+        {
+          "description": "The description of an achievement.",
+          "fullName": "Description",
+          "functionType": "StringExpression",
+          "group": "Information",
+          "name": "Description",
+          "sentence": "",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const A = runtimeScene.getGame().__achievements;",
+                "if (!A) return;",
+                "eventsFunctionContext.returnValue = A.def(String(eventsFunctionContext.getArgument(\"Id\"))).desc;"
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "expressionType": {
+            "type": "string"
+          },
+          "parameters": [
+            {
+              "description": "Achievement identifier (for example: \"first_coin\")",
+              "name": "Id",
+              "type": "string"
+            }
+          ],
+          "objectGroups": []
+        },
+        {
+          "description": "The identifier of the achievement unlocked most recently in this game session.",
+          "fullName": "Last unlocked achievement",
+          "functionType": "StringExpression",
+          "group": "Information",
+          "name": "LastUnlocked",
+          "sentence": "",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const A = runtimeScene.getGame().__achievements;",
+                "if (!A) return;",
+                "eventsFunctionContext.returnValue = A.last;"
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "expressionType": {
+            "type": "string"
+          },
+          "parameters": [],
+          "objectGroups": []
+        },
+        {
+          "description": "Show (or hide) the pop-up that slides in when an achievement is unlocked. It is shown by default.",
+          "fullName": "Show toasts",
+          "functionType": "Action",
+          "group": "Toast",
+          "name": "EnableToast",
+          "sentence": "Show a toast when an achievement is unlocked: _PARAM1_",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const A = runtimeScene.getGame().__achievements;",
+                "if (!A) return;",
+                "A.style.enabled = !!eventsFunctionContext.getArgument(\"Enable\");"
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "parameters": [
+            {
+              "defaultValue": "yes",
+              "description": "Show toasts",
+              "name": "Enable",
+              "optional": true,
+              "type": "yesorno"
+            }
+          ],
+          "objectGroups": []
+        },
+        {
+          "description": "Change where the toast appears on the screen.",
+          "fullName": "Toast position",
+          "functionType": "Action",
+          "group": "Toast",
+          "name": "SetToastPosition",
+          "sentence": "Show toasts at the _PARAM1_ of the screen",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const A = runtimeScene.getGame().__achievements;",
+                "if (!A) return;",
+                "A.style.position = String(eventsFunctionContext.getArgument(\"Position\")) || 'Top';"
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "parameters": [
+            {
+              "defaultValue": "\"Top\"",
+              "description": "Position",
+              "name": "Position",
+              "optional": true,
+              "supplementaryInformation": "[\"Top\", \"Top-left\", \"Top-right\", \"Bottom\", \"Bottom-left\", \"Bottom-right\"]",
+              "type": "stringWithSelector"
+            }
+          ],
+          "objectGroups": []
+        },
+        {
+          "description": "Change how long the toast stays on screen.",
+          "fullName": "Toast duration",
+          "functionType": "Action",
+          "group": "Toast",
+          "name": "SetToastDuration",
+          "sentence": "Show toasts for _PARAM1_ seconds",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const A = runtimeScene.getGame().__achievements;",
+                "if (!A) return;",
+                "A.style.duration = Math.max(0, Number(eventsFunctionContext.getArgument(\"Seconds\")) || 0);"
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "parameters": [
+            {
+              "defaultValue": "3",
+              "description": "Duration (in seconds)",
+              "name": "Seconds",
+              "optional": true,
+              "type": "expression"
+            }
+          ],
+          "objectGroups": []
+        },
+        {
+          "description": "Change the colors of the toast.",
+          "fullName": "Toast colors",
+          "functionType": "Action",
+          "group": "Toast",
+          "name": "SetToastColors",
+          "sentence": "Toast colors: background _PARAM1_, text _PARAM2_, accent _PARAM3_",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const A = runtimeScene.getGame().__achievements;",
+                "if (!A) return;",
+                "A.setColors(eventsFunctionContext.getArgument(\"Background\"), eventsFunctionContext.getArgument(\"Text\"), eventsFunctionContext.getArgument(\"Accent\"));"
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "parameters": [
+            {
+              "defaultValue": "\"30;34;51\"",
+              "description": "Background color",
+              "name": "Background",
+              "optional": true,
+              "type": "color"
+            },
+            {
+              "defaultValue": "\"255;255;255\"",
+              "description": "Text color",
+              "name": "Text",
+              "optional": true,
+              "type": "color"
+            },
+            {
+              "defaultValue": "\"255;200;61\"",
+              "description": "Accent color (border, star and label)",
+              "name": "Accent",
+              "optional": true,
+              "type": "color"
+            }
+          ],
+          "objectGroups": []
+        },
+        {
+          "description": "Change the small label above the title (\"Achievement unlocked\" by default). Use it to translate the toast, for example \"Pencapaian dibuka\".",
+          "fullName": "Toast label",
+          "functionType": "Action",
+          "group": "Toast",
+          "name": "SetToastLabel",
+          "sentence": "Toast label: _PARAM1_",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const A = runtimeScene.getGame().__achievements;",
+                "if (!A) return;",
+                "A.style.label = String(eventsFunctionContext.getArgument(\"Label\"));"
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "parameters": [
+            {
+              "description": "Label",
+              "name": "Label",
+              "type": "string"
+            }
+          ],
+          "objectGroups": []
+        },
+        {
+          "description": "Show the toast of an achievement without unlocking it. Useful to preview the toast's look.",
+          "fullName": "Show the toast of an achievement",
+          "functionType": "Action",
+          "group": "Toast",
+          "name": "ShowToast",
+          "sentence": "Show the toast of achievement _PARAM1_",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const A = runtimeScene.getGame().__achievements;",
+                "if (!A) return;",
+                "A.queue.push(String(eventsFunctionContext.getArgument(\"Id\")));"
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "parameters": [
+            {
+              "description": "Achievement identifier (for example: \"first_coin\")",
+              "name": "Id",
+              "type": "string"
+            }
+          ],
+          "objectGroups": []
+        }
+      ],
+      "eventsFunctionsFolderStructure": {
+        "folderName": "__ROOT",
+        "children": [
+          {
+            "functionName": "onFirstSceneLoaded"
+          },
+          {
+            "functionName": "onScenePreEvents"
+          },
+          {
+            "functionName": "onScenePostEvents"
+          },
+          {
+            "folderName": "Setup",
+            "children": [
+              {
+                "functionName": "DefineAchievement"
+              },
+              {
+                "functionName": "ResetAchievement"
+              },
+              {
+                "functionName": "ResetAll"
+              }
+            ]
+          },
+          {
+            "folderName": "Unlock and progress",
+            "children": [
+              {
+                "functionName": "Unlock"
+              },
+              {
+                "functionName": "AddProgress"
+              },
+              {
+                "functionName": "SetProgress"
+              },
+              {
+                "functionName": "IsUnlocked"
+              },
+              {
+                "functionName": "JustUnlocked"
+              },
+              {
+                "functionName": "AnyJustUnlocked"
+              }
+            ]
+          },
+          {
+            "folderName": "Information",
+            "children": [
+              {
+                "functionName": "Progress"
+              },
+              {
+                "functionName": "Goal"
+              },
+              {
+                "functionName": "ProgressPercent"
+              },
+              {
+                "functionName": "Count"
+              },
+              {
+                "functionName": "UnlockedCount"
+              },
+              {
+                "functionName": "IdAt"
+              },
+              {
+                "functionName": "Title"
+              },
+              {
+                "functionName": "Description"
+              },
+              {
+                "functionName": "LastUnlocked"
+              }
+            ]
+          },
+          {
+            "folderName": "Toast",
+            "children": [
+              {
+                "functionName": "EnableToast"
+              },
+              {
+                "functionName": "SetToastPosition"
+              },
+              {
+                "functionName": "SetToastDuration"
+              },
+              {
+                "functionName": "SetToastColors"
+              },
+              {
+                "functionName": "SetToastLabel"
+              },
+              {
+                "functionName": "ShowToast"
+              }
+            ]
+          }
+        ]
+      },
+      "eventsBasedBehaviors": [],
+      "eventsBasedObjects": []
+    }
+  ],
+  "externalLayouts": [],
+  "externalLayoutsFolderStructure": {
+    "folderName": "__ROOT"
+  }
+}
