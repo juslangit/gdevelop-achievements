@@ -3,6 +3,8 @@
 Define achievements, unlock them or track their progress, save them on the player's device, and show a
 toast when one is unlocked. No objects to add and no setup: install the extension and use its actions.
 
+**Help page:** https://juslangit.github.io/gdevelop-achievements/
+
 ## Use it
 
 1. In GDevelop: Project Manager > Extensions > Import extension, pick `extension/Achievements.json`
@@ -14,10 +16,10 @@ toast when one is unlocked. No objects to add and no setup: install the extensio
 
 | Kind | Name |
 |---|---|
-| Actions | Define an achievement · Unlock · Add progress · Set progress · Reset an achievement · Reset all |
-| Toast actions | Show toasts (on/off) · Position (6 places) · Duration · Colors · Label (to translate it) · Show the toast of an achievement |
-| Conditions | Is unlocked · Was just unlocked · Any achievement was just unlocked |
-| Expressions | `Progress(id)` · `Goal(id)` · `ProgressPercent(id)` · `Count()` · `UnlockedCount()` · `IdAt(i)` · `Title(id)` · `Description(id)` · `LastUnlocked()` |
+| Actions | Define an achievement · Make it secret · Icon · Secret achievement text · Unlock · Add progress · Set progress · Reset an achievement · Reset all |
+| Toast actions | Show toasts (on/off) · Position (6 places) · Duration · Colors · Label (to translate it) · Sound · Show the toast of an achievement |
+| Conditions | Is unlocked · Was just unlocked · Any achievement was just unlocked · Is secret |
+| Expressions | `Progress(id)` · `Goal(id)` · `ProgressPercent(id)` · `Count()` · `UnlockedCount()` · `IdAt(i)` · `Title(id)` · `Description(id)` · `Icon(id)` · `LastUnlocked()` |
 
 Progress is kept in the browser's local storage under `GDJS_Achievements_<game name>`, so it works in web,
 desktop and mobile exports. Achievements are local: they are not linked to Steam or another platform.
@@ -25,7 +27,8 @@ desktop and mobile exports. Achievements are local: they are not linked to Steam
 ## The example
 
 `example/Achievements Example.json` opens in GDevelop: SPACE to jump, C to find a coin, wait 15 seconds,
-B moves the toasts, M translates the toast to Malay, R resets everything. Its events show each feature,
+H finds the secret achievement, B moves the toasts, M translates the toast to Malay, R resets everything.
+Every achievement has an icon (drawn by `tools/make_icons.py`) and the toast plays Kenney's CC0 "Music Jingles" sound. Its events show each feature,
 including an achievements screen built with a Repeat event and `IdAt(i)`.
 
 ## Work on it
@@ -34,8 +37,9 @@ The extension is generated: edit `src/core.js` (the runtime) or `tools/build_ext
 conditions and expressions), then run
 
 ```
-tools/build.sh                                              # build, check every instruction, export the example
-cd tools && node lib/play.js ../build/example tests/example.json ../build/shots/ex   # play test in headless Chrome
+tools/build.sh             # build the extension, check every instruction, export the example and a 3D test
+tools/run_tests.sh         # play tests in headless Chrome: example, phone, missing icon, hero shot, 3D
+python3 tools/build_help.py   # rebuild help/ (published to GitHub Pages from the gh-pages branch)
 ```
 
 `tools/build.sh` must print `instruction problems: 0` and `EXPORT OK diagnostics: 0`.

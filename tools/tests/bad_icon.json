@@ -1,0 +1,7 @@
+[{"device": [1280, 720]},
+ {"until": "window.__game && window.__game.__achievements && td.name()==='Example'", "timeout": 20000},
+ {"wait": 300},
+ {"eval": "(()=>{const a=window.__game.__achievements; a.setExtra('jumper','icon','no_such_image.png'); a.queue.push('jumper'); return 1})()"},
+ {"wait": 900},
+ {"eval": "(()=>{const v=window.__game.__achievements.view; return ['missing icon -> star', !v.picture.visible]})()"},
+ {"shot": "bad-icon"}]

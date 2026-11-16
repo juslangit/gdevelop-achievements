@@ -34,6 +34,24 @@
   "shot": "toast-top"
  },
  {
+  "eval": "(()=>{const a=window.__game.__achievements,v=a.view; return ['icon', v&&v.picture.visible, a.def('first_step').icon, 'sounds='+window.__game.getSoundManager()._freeSounds.length]})()"
+ },
+ {
+  "eval": "['secret before', window.__game.__achievements.shownTitle('curious'), window.__game.__achievements.shownDesc('curious'), td.texts('ListText')[0].split('\\n')[4]]"
+ },
+ {
+  "hold": [
+   "h",
+   60
+  ]
+ },
+ {
+  "wait": 300
+ },
+ {
+  "eval": "['secret after', window.__game.__achievements.isUnlocked('curious'), window.__game.__achievements.shownTitle('curious'), td.texts('ListText')[0].split('\\n')[4]]"
+ },
+ {
   "hold": [
    "Space",
    60

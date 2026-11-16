@@ -10,7 +10,8 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = "1.0.0"
+VERSION = "1.1.0"
+HELP = "https://juslangit.github.io/gdevelop-achievements/"
 NS = "Achievements"
 
 ICON_SVG = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#ffc83d" d="M7 2h10v2h4v3a5 5 0 0 1-4.6 5A5 5 0 0 1 13 15v3h3v3H8v-3h3v-3a5 5 0 0 1-3.4-3A5 5 0 0 1 3 7V4h4V2zm0 4H5v1a3 3 0 0 0 2 2.8V6zm10 0v3.8A3 3 0 0 0 19 7V6h-2z"/></svg>"""
@@ -77,6 +78,24 @@ FUNCTIONS = [
        f"A.define({arg('Id')}, {arg('Title')}, {arg('Description')}, {arg('Goal')});",
        [ID, p("Title", "Title"), p("Description", "Description"), p("Goal", "Goal (1 to unlock in one go)", "expression", default="1")],
        G_SETUP),
+    fn("SetSecret", "Action", "Make an achievement secret",
+       "Make an achievement secret (or not): until it is unlocked, its title and description are hidden. "
+       "The toast shows the real title when it is unlocked.",
+       "Make achievement _PARAM1_ secret: _PARAM2_",
+       f"A.setExtra({arg('Id')}, 'secret', !!{arg('Secret')});",
+       [ID, p("Secret", "Secret", "yesorno", default="yes")], G_SETUP),
+    fn("SetIcon", "Action", "Achievement icon",
+       "Use an image as the icon of an achievement. It is shown in the toast instead of the star. "
+       "A square image works best.",
+       "Use image _PARAM2_ as the icon of achievement _PARAM1_",
+       f"A.setExtra({arg('Id')}, 'icon', String({arg('Icon')}));",
+       [ID, p("Icon", "Image", "imageResource")], G_SETUP),
+    fn("SetSecretText", "Action", "Secret achievement text",
+       "Change the title and description shown for secret achievements that are still locked "
+       "(\"Secret achievement\" and \"???\" by default).",
+       "Show _PARAM1_ and _PARAM2_ for locked secret achievements",
+       f"A.style.secretTitle = String({arg('Title')}); A.style.secretDesc = String({arg('Description')});",
+       [p("Title", "Title"), p("Description", "Description")], G_SETUP),
     fn("ResetAchievement", "Action", "Reset an achievement",
        "Lock an achievement again and set its progress back to 0.",
        "Reset achievement _PARAM1_", f"A.reset({arg('Id')});", [ID], G_SETUP),
@@ -132,10 +151,18 @@ FUNCTIONS = [
        "Use it with a Repeat event to build an achievements screen.", "",
        f"eventsFunctionContext.returnValue = A.order[Math.floor(Number({arg('Index')}))] || '';",
        [p("Index", "Position (0 is the first achievement)", "expression")], G_INFO),
-    fn("Title", "StringExpression", "Title", "The title of an achievement.", "",
-       f"eventsFunctionContext.returnValue = A.def(String({arg('Id')})).title;", [ID], G_INFO),
-    fn("Description", "StringExpression", "Description", "The description of an achievement.", "",
-       f"eventsFunctionContext.returnValue = A.def(String({arg('Id')})).desc;", [ID], G_INFO),
+    fn("Title", "StringExpression", "Title",
+       "The title of an achievement. A secret achievement that is still locked gives the secret title instead.", "",
+       f"eventsFunctionContext.returnValue = A.shownTitle({arg('Id')});", [ID], G_INFO),
+    fn("Description", "StringExpression", "Description",
+       "The description of an achievement. A secret achievement that is still locked gives the secret description instead.", "",
+       f"eventsFunctionContext.returnValue = A.shownDesc({arg('Id')});", [ID], G_INFO),
+    fn("Icon", "StringExpression", "Icon",
+       "The name of the image resource used as the icon of an achievement (empty if it has none).", "",
+       f"eventsFunctionContext.returnValue = A.def(String({arg('Id')})).icon;", [ID], G_INFO),
+    fn("IsSecret", "Condition", "Achievement is secret",
+       "Check if an achievement is secret.", "Achievement _PARAM1_ is secret",
+       f"eventsFunctionContext.returnValue = A.def(String({arg('Id')})).secret;", [ID], G_INFO),
     fn("LastUnlocked", "StringExpression", "Last unlocked achievement",
        "The identifier of the achievement unlocked most recently in this game session.", "",
        "eventsFunctionContext.returnValue = A.last;", [], G_INFO),
@@ -169,6 +196,11 @@ FUNCTIONS = [
        "Use it to translate the toast, for example \"Pencapaian dibuka\".",
        "Toast label: _PARAM1_", f"A.style.label = String({arg('Label')});",
        [p("Label", "Label")], G_TOAST),
+    fn("SetToastSound", "Action", "Toast sound",
+       "Play a sound when a toast appears. Leave the sound empty for no sound.",
+       "Play _PARAM1_ (volume: _PARAM2_) when a toast appears",
+       f"A.style.sound = String({arg('Sound')}); A.style.volume = Math.max(0, Math.min(100, Number({arg('Volume')})));",
+       [p("Sound", "Sound", "audioResource"), p("Volume", "Volume (0 to 100)", "expression", default="100")], G_TOAST),
     fn("ShowToast", "Action", "Show the toast of an achievement",
        "Show the toast of an achievement without unlocking it. Useful to preview the toast's look.",
        "Show the toast of achievement _PARAM1_", f"A.queue.push(String({arg('Id')}));", [ID], G_TOAST),
@@ -180,7 +212,7 @@ EXTENSION = {
     "extensionNamespace": "",
     "fullName": "Achievements",
     "gdevelopVersion": ">=5.5.222",
-    "helpPath": "",
+    "helpPath": HELP,
     "iconUrl": "data:image/svg+xml;base64," + base64.b64encode(ICON_SVG.encode()).decode(),
     "name": NS,
     "previewIconUrl": "https://resources.gdevelop-app.com/assets/Icons/trophy-outline.svg",
@@ -193,7 +225,8 @@ EXTENSION = {
         "- Define each achievement once, at the start of the first scene: an identifier, a title, a description and a goal.",
         "- Unlock it in one go, or add progress (\"collect 10 coins\") and it unlocks when the goal is reached.",
         "- Progress is saved on the player's device automatically.",
-        "- A toast slides in when an achievement is unlocked. Change its position, colors, duration and label (to translate it).",
+        "- Secret achievements hide their title and description until they are unlocked.",
+        "- A toast slides in when an achievement is unlocked, with the achievement's own icon and a sound if you want. Change its position, colors, duration and label (to translate it).",
         "- Expressions give the title, description, progress and goal of each achievement, so you can build your own achievements screen.",
         "",
         "Achievements are local to the device: they are not linked to Steam, Game Jolt or another platform.",

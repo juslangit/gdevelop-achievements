@@ -121,13 +121,13 @@ details.fold > div { padding: 2px 0 18px 22px; }
 </head>
 <body>
 <div class="layout">
-  <nav class="toc" aria-label="Contents"><ul><li><a href="#overview">Overview</a></li><li><a href="#idea">The idea</a></li><li><a href="#planning">Planning</a></li><li><a href="#milestones">Milestones</a></li><li><a href="#methods">Methods</a></li><li><a href="#relations">What it depends on</a></li><li><a href="#decisions">Decisions</a></li><li><a href="#references">References</a></li><li><a href="#log">Session log</a></li><li><a href="#checks">Tests and tools</a></li></ul></nav>
+  <nav class="toc" aria-label="Contents"><ul><li><a href="#overview">Overview</a></li><li><a href="#idea">The idea</a></li><li><a href="#planning">Planning</a></li><li><a href="#milestones">Milestones</a></li><li><a href="#methods">Methods</a></li><li><a href="#relations">What it depends on</a></li><li><a href="#decisions">Decisions</a></li><li><a href="#references">References</a></li><li><a href="#log">Session log</a></li><li><a href="#checks">Tests and tools</a></li><li><a href="#history">Git history</a></li></ul></nav>
   <main>
 <header class="cover" id="top">
-  <p class="eyebrow"><b>Gdevelop Achievements</b><span>Project record · built 2026-11-16</span></p>
+  <p class="eyebrow"><b>Gdevelop Achievements</b><span>Project record · built 2026-11-16 from main</span></p>
   <h1>Gdevelop Achievements</h1>
   <p class="thesis">An "Achievements" extension for GDevelop 5, for the public extension store: define achievements, unlock or add progress, saved on the device, and a slide-in toast with no setup. Code: <code>~/Desktop/projects/game/gdevelop-achievements/</code>.</p>
-  <div class="stats"><div class="stat"><b>1,067</b><span>source files</span></div><div class="stat"><b>319,879</b><span>lines of code</span></div><div class="stat"><b>1</b><span>sessions logged</span></div></div>
+  <div class="stats"><div class="stat"><b>1</b><span>commits</span></div><div class="stat"><b>1</b><span>days of work</span></div><div class="stat"><b>12</b><span>source files</span></div><div class="stat"><b>1,922</b><span>lines of code</span></div><div class="stat"><b>1</b><span>sessions logged</span></div></div>
   
 </header>
 <section class="chapter notes" id="overview">
@@ -135,8 +135,8 @@ details.fold > div { padding: 2px 0 18px 22px; }
   <h2>Overview</h2>
   <div class="prose"><h3 id="overview-quick-summary">Quick summary</h3>
 <div class="table"><table><thead><tr><th>Item</th><th>Value</th></tr></thead><tbody>
-<tr><td>Status</td><td>testing — v1.0.0 built, all play tests pass; waiting for Luqman to try it in GDevelop</td></tr>
-<tr><td>Next</td><td>Luqman tries <code>example/Achievements Example.json</code> → then PR to GDevelopApp/GDevelop-extensions (community) from juslangit</td></tr>
+<tr><td>Status</td><td>submitted — PR GDevelopApp/GDevelop-extensions#2360 opened 2026-11-16, checks pass, waiting for the Extensions Team review</td></tr>
+<tr><td>Next</td><td>answer reviewer feedback on #2360; repo public at github.com/juslangit/gdevelop-achievements (release v1.0.0 has the example zip)</td></tr>
 <tr><td>Stack</td><td>GDevelop 5.6.287; events-based extension with JavaScript events; libGD in Node for checks; Playwright headless play test</td></tr>
 </tbody></table></div>
 <h3 id="overview-files">Files</h3>
@@ -216,6 +216,7 @@ details.fold > div { padding: 2px 0 18px 22px; }
 <li>GDevelop "key just pressed" misses Playwright <code>press</code>; hold keys ~60 ms in tests.</li>
 <li>Tools copied from gdevelop-year3 tap-dash (gdenv/loader/build_html5/play.js + vendored libGD); node_modules is <code>node_modules.nosync</code> + symlink so iCloud doesn't sync it.</li>
 <li>Opening in GDevelop: <code>open -a "GDevelop 5" --args "&lt;path&gt;/Achievements Example.json"</code> (GDevelop must be closed).</li>
+<li>Store submission: fork GDevelopApp/GDevelop-extensions, file in <code>extensions/community/</code>, run <code>npm install &amp;&amp; npm run build</code> and <code>npm run check-post-build</code> locally, PR with their template. They want the example zip attached; Luqman's Chrome isn't signed in to GitHub, so it went on our repo's release and was linked in a PR comment.</li>
 </ul></div>
 </section>
 <section class="chapter notes" id="relations">
@@ -281,7 +282,11 @@ details.fold > div { padding: 2px 0 18px 22px; }
 <tr><td></td><td></td><td></td></tr>
 </tbody></table></div>
 <h3 id="references-references-inspiration">References &amp; inspiration</h3>
-<h3 id="references-reading-notes">Reading notes</h3></div>
+<h3 id="references-reading-notes">Reading notes</h3>
+<ul>
+<li>Repo (public): <a href="https://github.com/juslangit/gdevelop-achievements">https://github.com/juslangit/gdevelop-achievements</a> — release v1.0.0 holds the example zip</li>
+<li>Store PR: <a href="https://github.com/GDevelopApp/GDevelop-extensions/pull/2360">https://github.com/GDevelopApp/GDevelop-extensions/pull/2360</a> (fork juslangit/GDevelop-extensions, branch add-achievements-extension)</li>
+</ul></div>
 </section>
 <section class="chapter notes" id="log">
   <p class="kicker">log/ · 1 session <button class="unfold" type="button" data-for="log">Open all</button></p>
@@ -292,12 +297,18 @@ details.fold > div { padding: 2px 0 18px 22px; }
 <li>Play test (headless Chrome): unlock, progress, set progress, completionist via UnlockedCount, 5 toasts queued, save survives reload, reset clears, Malay label/colours, bottom-right, phone portrait fit. 0 console errors.</li>
 <li>Not tested: a game with 3D layers (our libGD copy can't load the 3D extension) — check in GDevelop.</li>
 <li>Opened the example in GDevelop for Luqman. Nothing committed; no repo yet.</li>
+<li>Repo made public (juslangit/gdevelop-achievements, commit 5ba6f65, release v1.0.0). Store PR #2360 opened; store checks (build, install, tests) pass. Example zip linked in a PR comment (Chrome not signed in to GitHub).</li>
 </ul></div></details></div>
 </section>
 <section class="chapter" id="checks">
   <p class="kicker">What proves it works, from each file's own header comment</p>
   <h2>Tests and tools</h2>
   <details class="fold" id="tools"><summary><span>Scripts and tools</span></summary><div><p class="note">The scripts kept beside the project, and what each is for.</p><div class="table"><table><thead><tr><th>File</th><th>What it does</th></tr></thead><tbody><tr><td><code>tools/build_example.py</code></td><td>—</td></tr><tr><td><code>tools/build_extension.py</code></td><td>—</td></tr><tr><td><code>tools/build.sh</code></td><td>Build the extension and the example, check every instruction with GDevelop's own library, normalize the example to the editor's format and export a playable web build to build/example.</td></tr><tr><td><code>tools/build_example.py</code></td><td>—</td></tr><tr><td><code>tools/build_extension.py</code></td><td>—</td></tr><tr><td><code>tools/gd/__init__.py</code></td><td>—</td></tr><tr><td><code>tools/gd/dsl.py</code></td><td>—</td></tr></tbody></table></div></div></details>
+</section>
+<section class="chapter" id="history">
+  <p class="kicker">git log on main, newest first</p>
+  <h2>Git history</h2>
+  <details class="fold"><summary><span>Every commit</span></summary><div><div class="table"><table><thead><tr><th>Commit</th><th>Date</th><th>Change</th></tr></thead><tbody><tr class=""><td><code>5ba6f65</code></td><td class="nowrap">2026-11-16</td><td>Achievements extension v1.0.0 for GDevelop</td></tr></tbody></table></div></div></details>
 </section></main>
 </div>
 <!--mermaid-->

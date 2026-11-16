@@ -1,0 +1,57 @@
+[
+ {
+  "device": [
+   1280,
+   720
+  ]
+ },
+ {
+  "until": "window.__game && window.__game.__achievements && td.name()==='Example'",
+  "timeout": 20000
+ },
+ {
+  "wait": 500
+ },
+ {
+  "eval": "(()=>{const r=td.scene().getRenderer(); const L=td.scene().getLayer(''); return {three: !!window.__game.getRenderer().getThreeRenderer(), base3D: L.getRenderer().has3DObjects()}})()"
+ },
+ {
+  "hold": [
+   "Space",
+   60
+  ]
+ },
+ {
+  "wait": 500
+ },
+ {
+  "eval": "(()=>{const n=[];td.scene().getAllLayerNames(n);return [n, window.__game.__achievements.toast && window.__game.__achievements.toast.id]})()"
+ },
+ {
+  "shot": "3d-toast"
+ },
+ {
+  "hold": [
+   "b",
+   60
+  ]
+ },
+ {
+  "wait": 4500
+ },
+ {
+  "hold": [
+   "c",
+   60
+  ]
+ },
+ {
+  "eval": "window.__game.__achievements.queue.push('jumper');1"
+ },
+ {
+  "wait": 800
+ },
+ {
+  "shot": "3d-over-box"
+ }
+]

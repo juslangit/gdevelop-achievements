@@ -6,3 +6,4 @@ cd "${0:A:h}"
 python3 build_extension.py
 python3 build_example.py
 node lib/build_html5.js "../example/Achievements Example.json" ../build/example --normalize
+node lib/build_html5.js "../build/test3d/Achievements 3D Test.json" ../build/test3d-web

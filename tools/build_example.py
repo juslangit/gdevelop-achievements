@@ -5,10 +5,13 @@ Usage: python3 tools/build_example.py      (then tools/build.sh normalizes, chec
   SPACE  jump            -> "First Step" (unlock) and "Jumper" (progress, goal 10)
   C      find a coin     -> "Coin Hunter" (progress, goal 5)
   wait 15 seconds        -> "Patience" (set progress from a timer)
-  all four               -> "Completionist" (set progress from UnlockedCount())
+  H (not in the help)    -> "Curious Mind", a secret achievement
+  all the others         -> "Completionist" (set progress from UnlockedCount())
+Every achievement has an icon, and the toast plays a sound (Kenney's CC0 "Music Jingles").
   B      toasts at the bottom-right    M  toast label in Malay    R  reset all achievements
 """
 import json
+import shutil
 import sys
 import uuid
 from pathlib import Path
@@ -64,8 +67,22 @@ ACHIEVEMENTS = [
     ("jumper", "Jumper", "Jump 10 times.", 10),
     ("coin_hunter", "Coin Hunter", "Find 5 coins (press C).", 5),
     ("patience", "Patience", "Stay in the game for 15 seconds.", 15),
-    ("completionist", "Completionist", "Unlock every other achievement.", 4),
+    ("curious", "Curious Mind", "Found the secret key: H.", 1),
+    ("completionist", "Completionist", "Unlock every other achievement.", 5),
 ]
+SOUND = "sfx_unlock.ogg"  # resource parameters hold the bare resource name, not a "text"
+
+
+def icon(i):
+    return f"icon_{i}.png"   # "curious" is secret and has no icon: its toast shows the star
+
+
+def resources():
+    out = [{"file": f"assets/{icon(i)}", "metadata": "", "name": icon(i), "userAdded": True, "kind": "image",
+            "smoothed": True} for i, *_ in ACHIEVEMENTS if i != "curious"]
+    out.append({"file": f"assets/{SOUND}", "metadata": "", "name": SOUND, "userAdded": True, "kind": "audio",
+                "preloadAsMusic": False, "preloadAsSound": True, "preloadInCache": False})
+    return out
 
 
 def item(expr_id, what):
@@ -79,11 +96,15 @@ def events():
                 "Progress is saved on this device, so it is still here when you play again (press R to reset)."),
         group("Define the achievements", [
             ev([scene_start()], [ach("DefineAchievement", q(i), q(t), q(d), g) for i, t, d, g in ACHIEVEMENTS]),
+            comment("Optional: an icon for each achievement (shown in the toast), and a secret one."),
+            ev([scene_start()], [ach("SetIcon", q(i), icon(i)) for i, *_ in ACHIEVEMENTS if i != "curious"] +
+               [ach("SetSecret", q("curious"), "yes")]),
         ]),
         group("Unlock and add progress", [
             comment("Unlock an achievement in one go, or add progress: it unlocks when the progress reaches the goal."),
             ev([key_just("Space")], [ach("Unlock", q("first_step")), ach("AddProgress", q("jumper"), 1)]),
             ev([key_just("c")], [ach("AddProgress", q("coin_hunter"), 1)]),
+            ev([key_just("h")], [ach("Unlock", q("curious"))]),
             comment("Set the progress from any number: here the time spent in the scene, and how many are unlocked."),
             ev([], [ach("SetProgress", q("patience"), "floor(TimeFromStart())"),
                     ach("SetProgress", q("completionist"), f"{NS}UnlockedCount()")]),
@@ -109,7 +130,8 @@ def events():
                                       f' + "      Coins: " + ToString({item(q("coin_hunter"), "Progress")})')]),
         ]),
         group("Toast settings", [
-            comment("The toast works with no setup. These actions change its look."),
+            comment("The toast works with no setup. These actions change its look and sound."),
+            ev([scene_start()], [ach("SetToastSound", SOUND, 70)]),
             ev([key_just("b")], [ach("SetToastPosition", q("Bottom-right"))]),
             ev([key_just("m")], [ach("SetToastLabel", q("Pencapaian dibuka")),
                                  ach("SetToastColors", q("20;60;40"), q("255;255;255"), q("120;230;140"))]),
@@ -122,7 +144,19 @@ HELP = ("SPACE  jump        C  find a coin        B  toasts at the bottom-right 
         "M  toast in Malay        R  reset all")
 
 
-def build():
+def cube():
+    """A plain 3D box: with it on the base layer, GDevelop renders the scene with its 3D renderer (used by the 3D test)."""
+    faces = ["front", "back", "left", "right", "top", "bottom"]
+    content = {"width": 100, "height": 100, "depth": 100, "enableTextureTransparency": False, "facesOrientation": "Y",
+               "backFaceUpThroughWhichAxisRotation": "X", "tileScale": 1, "materialType": "Basic", "tint": "90;140;255",
+               "isCastingShadow": False, "isReceivingShadow": False}
+    for f in faces:
+        content.update({f + "FaceResourceName": "", f + "FaceVisible": True, f + "FaceResourceRepeat": False})
+    return {"assetStoreId": "", "name": "Box", "type": "Scene3D::Cube3DObject", "variables": [], "effects": [],
+            "behaviors": [], "content": content}
+
+
+def build(three_d=False):
     objects = [text_object("TitleText", 44, "255;200;61", bold=True), text_object("HelpText", 20, "190;196;220"),
                text_object("CountText", 24), text_object("ListText", 24), text_object("LastText", 22, "255;200;61")]
     objects[0]["string"] = objects[0]["content"]["text"] = "Achievements example"
@@ -135,6 +169,11 @@ def build():
              "instances": [inst("TitleText", 60, 50), inst("HelpText", 60, 120), inst("CountText", 60, 190),
                            inst("ListText", 60, 250), inst("LastText", 60, 600)],
              "objects": objects, "events": events(), "layers": [layer("")], "behaviorsSharedData": []}
+    if three_d:
+        objects.append(cube())
+        box = inst("Box", 700, 300)
+        box.update(customSize=True, width=420, height=300, depth=300, z=0, angle=20)
+        scene["instances"].append(box)
     return {
         "firstLayout": "Example",
         "gdVersion": {"build": 287, "major": 5, "minor": 6, "revision": 0},
@@ -156,7 +195,7 @@ def build():
             "authorIds": [], "authorUsernames": [], "categories": [], "playableDevices": ["keyboard"],
             "extensionProperties": [], "platforms": [{"name": "GDevelop JS platform"}],
             "currentPlatform": "GDevelop JS platform"},
-        "resources": {"resources": [], "resourceFolders": []},
+        "resources": {"resources": resources(), "resourceFolders": []},
         "objects": [], "objectsGroups": [], "variables": [], "layouts": [scene], "externalEvents": [],
         "eventsFunctionsExtensions": [json.loads((ROOT / "extension" / "Achievements.json").read_text())],
         "externalLayouts": [],
@@ -167,3 +206,8 @@ if __name__ == "__main__":
     out = ROOT / "example" / "Achievements Example.json"
     out.write_text(json.dumps(build(), indent=1))
     print(out.relative_to(ROOT))
+    # The same game with a 3D box, to check the toast shows above 3D rendering (not shipped).
+    test = ROOT / "build" / "test3d" / "Achievements 3D Test.json"
+    test.parent.mkdir(parents=True, exist_ok=True)
+    test.write_text(json.dumps(build(three_d=True), indent=1))
+    shutil.copytree(ROOT / "example" / "assets", test.parent / "assets", dirs_exist_ok=True)

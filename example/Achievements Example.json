@@ -64,7 +64,58 @@
     "currentPlatform": "GDevelop JS platform"
   },
   "resources": {
-    "resources": []
+    "resources": [
+      {
+        "file": "assets/icon_first_step.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "icon_first_step.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "assets/icon_jumper.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "icon_jumper.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "assets/icon_coin_hunter.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "icon_coin_hunter.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "assets/icon_patience.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "icon_patience.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "assets/icon_completionist.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "icon_completionist.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "assets/sfx_unlock.ogg",
+        "kind": "audio",
+        "metadata": "",
+        "name": "sfx_unlock.ogg",
+        "preloadAsMusic": false,
+        "preloadAsSound": true,
+        "preloadInCache": false,
+        "userAdded": true
+      }
+    ]
   },
   "objects": [],
   "objectsFolderStructure": {
@@ -515,10 +566,116 @@
                   },
                   "parameters": [
                     "",
+                    "\"curious\"",
+                    "\"Curious Mind\"",
+                    "\"Found the secret key: H.\"",
+                    "1",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Achievements::DefineAchievement"
+                  },
+                  "parameters": [
+                    "",
                     "\"completionist\"",
                     "\"Completionist\"",
                     "\"Unlock every other achievement.\"",
-                    "4",
+                    "5",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Comment",
+              "color": {
+                "b": 109,
+                "g": 230,
+                "r": 255,
+                "textB": 0,
+                "textG": 0,
+                "textR": 0
+              },
+              "comment": "Optional: an icon for each achievement (shown in the toast), and a secret one."
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "SceneJustBegins"
+                  },
+                  "parameters": [
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Achievements::SetIcon"
+                  },
+                  "parameters": [
+                    "",
+                    "\"first_step\"",
+                    "icon_first_step.png",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Achievements::SetIcon"
+                  },
+                  "parameters": [
+                    "",
+                    "\"jumper\"",
+                    "icon_jumper.png",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Achievements::SetIcon"
+                  },
+                  "parameters": [
+                    "",
+                    "\"coin_hunter\"",
+                    "icon_coin_hunter.png",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Achievements::SetIcon"
+                  },
+                  "parameters": [
+                    "",
+                    "\"patience\"",
+                    "icon_patience.png",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Achievements::SetIcon"
+                  },
+                  "parameters": [
+                    "",
+                    "\"completionist\"",
+                    "icon_completionist.png",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Achievements::SetSecret"
+                  },
+                  "parameters": [
+                    "",
+                    "\"curious\"",
+                    "yes",
                     ""
                   ]
                 }
@@ -607,6 +764,32 @@
                     "",
                     "\"coin_hunter\"",
                     "1",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextJustPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"h\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Achievements::Unlock"
+                  },
+                  "parameters": [
+                    "",
+                    "\"curious\"",
                     ""
                   ]
                 }
@@ -892,7 +1075,33 @@
                 "textG": 0,
                 "textR": 0
               },
-              "comment": "The toast works with no setup. These actions change its look."
+              "comment": "The toast works with no setup. These actions change its look and sound."
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "SceneJustBegins"
+                  },
+                  "parameters": [
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Achievements::SetToastSound"
+                  },
+                  "parameters": [
+                    "",
+                    "sfx_unlock.ogg",
+                    "70",
+                    ""
+                  ]
+                }
+              ]
             },
             {
               "type": "BuiltinCommonInstructions::Standard",
@@ -1071,19 +1280,20 @@
       "extensionNamespace": "",
       "fullName": "Achievements",
       "gdevelopVersion": ">=5.5.222",
-      "helpPath": "",
+      "helpPath": "https://juslangit.github.io/gdevelop-achievements/",
       "iconUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iI2ZmYzgzZCIgZD0iTTcgMmgxMHYyaDR2M2E1IDUgMCAwIDEtNC42IDVBNSA1IDAgMCAxIDEzIDE1djNoM3YzSDh2LTNoM3YtM2E1IDUgMCAwIDEtMy40LTNBNSA1IDAgMCAxIDMgN1Y0aDRWMnptMCA0SDV2MWEzIDMgMCAwIDAgMiAyLjhWNnptMTAgMHYzLjhBMyAzIDAgMCAwIDE5IDdWNmgtMnoiLz48L3N2Zz4=",
       "name": "Achievements",
       "previewIconUrl": "https://resources.gdevelop-app.com/assets/Icons/trophy-outline.svg",
       "shortDescription": "Define achievements, unlock them or track their progress, save them on the device, and show a toast when one is unlocked.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "description": [
         "Add achievements to your game, with no setup.",
         "",
         "- Define each achievement once, at the start of the first scene: an identifier, a title, a description and a goal.",
         "- Unlock it in one go, or add progress (\"collect 10 coins\") and it unlocks when the goal is reached.",
         "- Progress is saved on the player's device automatically.",
-        "- A toast slides in when an achievement is unlocked. Change its position, colors, duration and label (to translate it).",
+        "- Secret achievements hide their title and description until they are unlocked.",
+        "- A toast slides in when an achievement is unlocked, with the achievement's own icon and a sound if you want. Change its position, colors, duration and label (to translate it).",
         "- Expressions give the title, description, progress and goal of each achievement, so you can build your own achievements screen.",
         "",
         "Achievements are local to the device: they are not linked to Steam, Game Jolt or another platform."
@@ -1164,6 +1374,7 @@
                 "",
                 "  const A = {",
                 "    defs: {}, // id -> { title, desc, goal }",
+                "    extra: {}, // id -> { secret, icon }: set by their own actions, before or after the definition",
                 "    order: [], // ids, in the order they were defined",
                 "    data: null, // id -> { p: progress, u: unlocked, t: unlock time }, saved in localStorage",
                 "    pending: [], // unlocked during this frame",
@@ -1176,6 +1387,7 @@
                 "    style: {",
                 "      enabled: true, position: 'Top', duration: 3,",
                 "      bg: 0x1e2233, fg: 0xffffff, accent: 0xffc83d, label: 'Achievement unlocked',",
+                "      sound: '', volume: 100, secretTitle: 'Secret achievement', secretDesc: '???',",
                 "    },",
                 "",
                 "    load() {",
@@ -1196,12 +1408,21 @@
                 "      return this.data[id];",
                 "    },",
                 "    def(id) {",
+                "      const x = this.extra[id] || {};",
                 "      if (!this.defs[id]) {",
                 "        if (!this.warned[id]) { this.warned[id] = true; console.warn('Achievements: \"' + id + '\" is used but was never defined. Use the action \"Define an achievement\" first.'); }",
-                "        return { title: id, desc: '', goal: 1 };",
+                "        return { title: id, desc: '', goal: 1, secret: !!x.secret, icon: x.icon || '' };",
                 "      }",
-                "      return this.defs[id];",
+                "      return Object.assign({}, this.defs[id], { secret: !!x.secret, icon: x.icon || '' });",
                 "    },",
+                "    setExtra(id, key, value) {",
+                "      id = String(id);",
+                "      if (!id) return;",
+                "      (this.extra[id] = this.extra[id] || {})[key] = value;",
+                "    },",
+                "    // What players may see: a secret achievement hides its title and description until it is unlocked.",
+                "    shownTitle(id) { id = String(id); const d = this.def(id); return d.secret && !this.isUnlocked(id) ? this.style.secretTitle : d.title; },",
+                "    shownDesc(id) { id = String(id); const d = this.def(id); return d.secret && !this.isUnlocked(id) ? this.style.secretDesc : d.desc; },",
                 "",
                 "    define(id, title, desc, goal) {",
                 "      id = String(id);",
@@ -1296,14 +1517,14 @@
                 "      this.destroyView();",
                 "      const layer = this.layer(scene);",
                 "      const c = new PIXI.Container();",
-                "      const bg = new PIXI.Graphics(), icon = new PIXI.Graphics();",
+                "      const bg = new PIXI.Graphics(), icon = new PIXI.Graphics(), picture = new PIXI.Sprite();",
                 "      const font = 'Arial, Helvetica, sans-serif';",
                 "      const label = makeText({ fontFamily: font, fontWeight: 'bold', fontSize: 12 });",
                 "      const title = makeText({ fontFamily: font, fontWeight: 'bold', fontSize: 18 });",
                 "      const desc = makeText({ fontFamily: font, fontSize: 13 });",
-                "      c.addChild(bg, icon, label, title, desc);",
+                "      c.addChild(bg, icon, picture, label, title, desc);",
                 "      layer.getRendererObject().addChild(c);",
-                "      this.view = { scene, c, bg, icon, label, title, desc, key: '' };",
+                "      this.view = { scene, c, bg, icon, picture, label, title, desc, key: '' };",
                 "    },",
                 "    layout(v, id, W, H) {",
                 "      const st = this.style, d = this.def(id);",
@@ -1313,8 +1534,20 @@
                 "      v.bg.clear(); v.icon.clear();",
                 "      roundRect(v.bg, 0, 0, w, h, 12 * s, st.accent, 1);",
                 "      roundRect(v.bg, 2 * s, 2 * s, w - 4 * s, h - 4 * s, 10 * s, st.bg, 1);",
-                "      circle(v.icon, pad + r, h / 2, r, st.accent);",
-                "      star(v.icon, pad + r, h / 2 + 1 * s, r * 0.62, st.bg);",
+                "      // The achievement's own image if it has one, otherwise a star in a circle.",
+                "      const images = game.getImageManager();",
+                "      const tex = d.icon ? images.getPIXITexture(d.icon) : null;",
+                "      v.picture.visible = !!tex && (!images.getInvalidPIXITexture || tex !== images.getInvalidPIXITexture());",
+                "      if (v.picture.visible) {",
+                "        v.picture.texture = tex;",
+                "        v.picture.anchor.set(0.5);",
+                "        const k = (2 * r) / Math.max(tex.width, tex.height);",
+                "        v.picture.scale.set(k);",
+                "        v.picture.position.set(pad + r, h / 2);",
+                "      } else {",
+                "        circle(v.icon, pad + r, h / 2, r, st.accent);",
+                "        star(v.icon, pad + r, h / 2 + 1 * s, r * 0.62, st.bg);",
+                "      }",
                 "      const x = pad + 2 * r + 12 * s, maxW = w - x - pad;",
                 "      for (const [t, size, color, alpha] of [[v.label, 14, st.accent, 1], [v.title, 22, st.fg, 1], [v.desc, 15, st.fg, 0.75]]) {",
                 "        t.style.fontSize = Math.round(size * s);",
@@ -1331,12 +1564,17 @@
                 "    postEvents(scene) {",
                 "      if (game.isInGameEdition && game.isInGameEdition()) return;",
                 "      const now = performance.now();",
-                "      if (!this.toast && this.queue.length) this.toast = { id: this.queue.shift(), start: now };",
+                "      if (!this.toast && this.queue.length) {",
+                "        this.toast = { id: this.queue.shift(), start: now };",
+                "        if (this.style.sound) {",
+                "          try { gdjs.evtTools.sound.playSound(scene, this.style.sound, false, this.style.volume, 1); } catch (e) {}",
+                "        }",
+                "      }",
                 "      if (!this.toast) { this.destroyView(); return; }",
                 "      if (!this.view || this.view.scene !== scene) this.buildView(scene);",
                 "      else this.layer(scene);",
                 "      const v = this.view, W = game.getGameResolutionWidth(), H = game.getGameResolutionHeight();",
-                "      const key = [this.toast.id, W, H, JSON.stringify(this.style)].join('|');",
+                "      const key = [this.toast.id, W, H, JSON.stringify(this.style), JSON.stringify(this.def(this.toast.id))].join('|');",
                 "      if (v.key !== key) { this.layout(v, this.toast.id, W, H); v.key = key; }",
                 "      const IN = 350, OUT = 350, HOLD = Math.max(0, this.style.duration) * 1000, t = now - this.toast.start;",
                 "      if (t > IN + HOLD + OUT) { this.toast = null; this.destroyView(); return; }",
@@ -1448,6 +1686,110 @@
               "name": "Goal",
               "optional": true,
               "type": "expression"
+            }
+          ],
+          "objectGroups": []
+        },
+        {
+          "description": "Make an achievement secret (or not): until it is unlocked, its title and description are hidden. The toast shows the real title when it is unlocked.",
+          "fullName": "Make an achievement secret",
+          "functionType": "Action",
+          "group": "Setup",
+          "name": "SetSecret",
+          "sentence": "Make achievement _PARAM1_ secret: _PARAM2_",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const A = runtimeScene.getGame().__achievements;",
+                "if (!A) return;",
+                "A.setExtra(eventsFunctionContext.getArgument(\"Id\"), 'secret', !!eventsFunctionContext.getArgument(\"Secret\"));"
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "parameters": [
+            {
+              "description": "Achievement identifier (for example: \"first_coin\")",
+              "name": "Id",
+              "type": "string"
+            },
+            {
+              "defaultValue": "yes",
+              "description": "Secret",
+              "name": "Secret",
+              "optional": true,
+              "type": "yesorno"
+            }
+          ],
+          "objectGroups": []
+        },
+        {
+          "description": "Use an image as the icon of an achievement. It is shown in the toast instead of the star. A square image works best.",
+          "fullName": "Achievement icon",
+          "functionType": "Action",
+          "group": "Setup",
+          "name": "SetIcon",
+          "sentence": "Use image _PARAM2_ as the icon of achievement _PARAM1_",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const A = runtimeScene.getGame().__achievements;",
+                "if (!A) return;",
+                "A.setExtra(eventsFunctionContext.getArgument(\"Id\"), 'icon', String(eventsFunctionContext.getArgument(\"Icon\")));"
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "parameters": [
+            {
+              "description": "Achievement identifier (for example: \"first_coin\")",
+              "name": "Id",
+              "type": "string"
+            },
+            {
+              "description": "Image",
+              "name": "Icon",
+              "type": "imageResource"
+            }
+          ],
+          "objectGroups": []
+        },
+        {
+          "description": "Change the title and description shown for secret achievements that are still locked (\"Secret achievement\" and \"???\" by default).",
+          "fullName": "Secret achievement text",
+          "functionType": "Action",
+          "group": "Setup",
+          "name": "SetSecretText",
+          "sentence": "Show _PARAM1_ and _PARAM2_ for locked secret achievements",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const A = runtimeScene.getGame().__achievements;",
+                "if (!A) return;",
+                "A.style.secretTitle = String(eventsFunctionContext.getArgument(\"Title\")); A.style.secretDesc = String(eventsFunctionContext.getArgument(\"Description\"));"
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "parameters": [
+            {
+              "description": "Title",
+              "name": "Title",
+              "type": "string"
+            },
+            {
+              "description": "Description",
+              "name": "Description",
+              "type": "string"
             }
           ],
           "objectGroups": []
@@ -1865,7 +2207,7 @@
           "objectGroups": []
         },
         {
-          "description": "The title of an achievement.",
+          "description": "The title of an achievement. A secret achievement that is still locked gives the secret title instead.",
           "fullName": "Title",
           "functionType": "StringExpression",
           "group": "Information",
@@ -1877,7 +2219,7 @@
               "inlineCode": [
                 "const A = runtimeScene.getGame().__achievements;",
                 "if (!A) return;",
-                "eventsFunctionContext.returnValue = A.def(String(eventsFunctionContext.getArgument(\"Id\"))).title;"
+                "eventsFunctionContext.returnValue = A.shownTitle(eventsFunctionContext.getArgument(\"Id\"));"
               ],
               "parameterObjects": "",
               "useStrict": true,
@@ -1897,7 +2239,7 @@
           "objectGroups": []
         },
         {
-          "description": "The description of an achievement.",
+          "description": "The description of an achievement. A secret achievement that is still locked gives the secret description instead.",
           "fullName": "Description",
           "functionType": "StringExpression",
           "group": "Information",
@@ -1909,7 +2251,7 @@
               "inlineCode": [
                 "const A = runtimeScene.getGame().__achievements;",
                 "if (!A) return;",
-                "eventsFunctionContext.returnValue = A.def(String(eventsFunctionContext.getArgument(\"Id\"))).desc;"
+                "eventsFunctionContext.returnValue = A.shownDesc(eventsFunctionContext.getArgument(\"Id\"));"
               ],
               "parameterObjects": "",
               "useStrict": true,
@@ -1919,6 +2261,67 @@
           "expressionType": {
             "type": "string"
           },
+          "parameters": [
+            {
+              "description": "Achievement identifier (for example: \"first_coin\")",
+              "name": "Id",
+              "type": "string"
+            }
+          ],
+          "objectGroups": []
+        },
+        {
+          "description": "The name of the image resource used as the icon of an achievement (empty if it has none).",
+          "fullName": "Icon",
+          "functionType": "StringExpression",
+          "group": "Information",
+          "name": "Icon",
+          "sentence": "",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const A = runtimeScene.getGame().__achievements;",
+                "if (!A) return;",
+                "eventsFunctionContext.returnValue = A.def(String(eventsFunctionContext.getArgument(\"Id\"))).icon;"
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "expressionType": {
+            "type": "string"
+          },
+          "parameters": [
+            {
+              "description": "Achievement identifier (for example: \"first_coin\")",
+              "name": "Id",
+              "type": "string"
+            }
+          ],
+          "objectGroups": []
+        },
+        {
+          "description": "Check if an achievement is secret.",
+          "fullName": "Achievement is secret",
+          "functionType": "Condition",
+          "group": "Information",
+          "name": "IsSecret",
+          "sentence": "Achievement _PARAM1_ is secret",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const A = runtimeScene.getGame().__achievements;",
+                "if (!A) return;",
+                "eventsFunctionContext.returnValue = A.def(String(eventsFunctionContext.getArgument(\"Id\"))).secret;"
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
           "parameters": [
             {
               "description": "Achievement identifier (for example: \"first_coin\")",
@@ -2123,6 +2526,42 @@
           "objectGroups": []
         },
         {
+          "description": "Play a sound when a toast appears. Leave the sound empty for no sound.",
+          "fullName": "Toast sound",
+          "functionType": "Action",
+          "group": "Toast",
+          "name": "SetToastSound",
+          "sentence": "Play _PARAM1_ (volume: _PARAM2_) when a toast appears",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const A = runtimeScene.getGame().__achievements;",
+                "if (!A) return;",
+                "A.style.sound = String(eventsFunctionContext.getArgument(\"Sound\")); A.style.volume = Math.max(0, Math.min(100, Number(eventsFunctionContext.getArgument(\"Volume\"))));"
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "parameters": [
+            {
+              "description": "Sound",
+              "name": "Sound",
+              "type": "audioResource"
+            },
+            {
+              "defaultValue": "100",
+              "description": "Volume (0 to 100)",
+              "name": "Volume",
+              "optional": true,
+              "type": "expression"
+            }
+          ],
+          "objectGroups": []
+        },
+        {
           "description": "Show the toast of an achievement without unlocking it. Useful to preview the toast's look.",
           "fullName": "Show the toast of an achievement",
           "functionType": "Action",
@@ -2169,6 +2608,15 @@
             "children": [
               {
                 "functionName": "DefineAchievement"
+              },
+              {
+                "functionName": "SetSecret"
+              },
+              {
+                "functionName": "SetIcon"
+              },
+              {
+                "functionName": "SetSecretText"
               },
               {
                 "functionName": "ResetAchievement"
@@ -2229,6 +2677,12 @@
                 "functionName": "Description"
               },
               {
+                "functionName": "Icon"
+              },
+              {
+                "functionName": "IsSecret"
+              },
+              {
                 "functionName": "LastUnlocked"
               }
             ]
@@ -2250,6 +2704,9 @@
               },
               {
                 "functionName": "SetToastLabel"
+              },
+              {
+                "functionName": "SetToastSound"
               },
               {
                 "functionName": "ShowToast"

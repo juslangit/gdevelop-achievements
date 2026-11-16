@@ -1,0 +1,4 @@
+[{"device": [1280, 720]},
+ {"until": "window.__game && window.__game.__achievements && td.name()==='Example'", "timeout": 20000},
+ {"wait": 300}, {"hold": ["b", 60]}, {"hold": ["c", 60]}, {"wait": 100}, {"hold": ["c", 60]}, {"wait": 100}, {"hold": ["h", 60]},
+ {"wait": 4300}, {"hold": ["Space", 60]}, {"wait": 900}, {"shot": "hero"}]

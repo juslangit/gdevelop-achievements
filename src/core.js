@@ -51,6 +51,7 @@ if (!game.__achievements) {
 
   const A = {
     defs: {}, // id -> { title, desc, goal }
+    extra: {}, // id -> { secret, icon }: set by their own actions, before or after the definition
     order: [], // ids, in the order they were defined
     data: null, // id -> { p: progress, u: unlocked, t: unlock time }, saved in localStorage
     pending: [], // unlocked during this frame
@@ -63,6 +64,7 @@ if (!game.__achievements) {
     style: {
       enabled: true, position: 'Top', duration: 3,
       bg: 0x1e2233, fg: 0xffffff, accent: 0xffc83d, label: 'Achievement unlocked',
+      sound: '', volume: 100, secretTitle: 'Secret achievement', secretDesc: '???',
     },
 
     load() {
@@ -83,12 +85,21 @@ if (!game.__achievements) {
       return this.data[id];
     },
     def(id) {
+      const x = this.extra[id] || {};
       if (!this.defs[id]) {
         if (!this.warned[id]) { this.warned[id] = true; console.warn('Achievements: "' + id + '" is used but was never defined. Use the action "Define an achievement" first.'); }
-        return { title: id, desc: '', goal: 1 };
+        return { title: id, desc: '', goal: 1, secret: !!x.secret, icon: x.icon || '' };
       }
-      return this.defs[id];
+      return Object.assign({}, this.defs[id], { secret: !!x.secret, icon: x.icon || '' });
     },
+    setExtra(id, key, value) {
+      id = String(id);
+      if (!id) return;
+      (this.extra[id] = this.extra[id] || {})[key] = value;
+    },
+    // What players may see: a secret achievement hides its title and description until it is unlocked.
+    shownTitle(id) { id = String(id); const d = this.def(id); return d.secret && !this.isUnlocked(id) ? this.style.secretTitle : d.title; },
+    shownDesc(id) { id = String(id); const d = this.def(id); return d.secret && !this.isUnlocked(id) ? this.style.secretDesc : d.desc; },
 
     define(id, title, desc, goal) {
       id = String(id);
@@ -183,14 +194,14 @@ if (!game.__achievements) {
       this.destroyView();
       const layer = this.layer(scene);
       const c = new PIXI.Container();
-      const bg = new PIXI.Graphics(), icon = new PIXI.Graphics();
+      const bg = new PIXI.Graphics(), icon = new PIXI.Graphics(), picture = new PIXI.Sprite();
       const font = 'Arial, Helvetica, sans-serif';
       const label = makeText({ fontFamily: font, fontWeight: 'bold', fontSize: 12 });
       const title = makeText({ fontFamily: font, fontWeight: 'bold', fontSize: 18 });
       const desc = makeText({ fontFamily: font, fontSize: 13 });
-      c.addChild(bg, icon, label, title, desc);
+      c.addChild(bg, icon, picture, label, title, desc);
       layer.getRendererObject().addChild(c);
-      this.view = { scene, c, bg, icon, label, title, desc, key: '' };
+      this.view = { scene, c, bg, icon, picture, label, title, desc, key: '' };
     },
     layout(v, id, W, H) {
       const st = this.style, d = this.def(id);
@@ -200,8 +211,20 @@ if (!game.__achievements) {
       v.bg.clear(); v.icon.clear();
       roundRect(v.bg, 0, 0, w, h, 12 * s, st.accent, 1);
       roundRect(v.bg, 2 * s, 2 * s, w - 4 * s, h - 4 * s, 10 * s, st.bg, 1);
-      circle(v.icon, pad + r, h / 2, r, st.accent);
-      star(v.icon, pad + r, h / 2 + 1 * s, r * 0.62, st.bg);
+      // The achievement's own image if it has one, otherwise a star in a circle.
+      const images = game.getImageManager();
+      const tex = d.icon ? images.getPIXITexture(d.icon) : null;
+      v.picture.visible = !!tex && (!images.getInvalidPIXITexture || tex !== images.getInvalidPIXITexture());
+      if (v.picture.visible) {
+        v.picture.texture = tex;
+        v.picture.anchor.set(0.5);
+        const k = (2 * r) / Math.max(tex.width, tex.height);
+        v.picture.scale.set(k);
+        v.picture.position.set(pad + r, h / 2);
+      } else {
+        circle(v.icon, pad + r, h / 2, r, st.accent);
+        star(v.icon, pad + r, h / 2 + 1 * s, r * 0.62, st.bg);
+      }
       const x = pad + 2 * r + 12 * s, maxW = w - x - pad;
       for (const [t, size, color, alpha] of [[v.label, 14, st.accent, 1], [v.title, 22, st.fg, 1], [v.desc, 15, st.fg, 0.75]]) {
         t.style.fontSize = Math.round(size * s);
@@ -218,12 +241,17 @@ if (!game.__achievements) {
     postEvents(scene) {
       if (game.isInGameEdition && game.isInGameEdition()) return;
       const now = performance.now();
-      if (!this.toast && this.queue.length) this.toast = { id: this.queue.shift(), start: now };
+      if (!this.toast && this.queue.length) {
+        this.toast = { id: this.queue.shift(), start: now };
+        if (this.style.sound) {
+          try { gdjs.evtTools.sound.playSound(scene, this.style.sound, false, this.style.volume, 1); } catch (e) {}
+        }
+      }
       if (!this.toast) { this.destroyView(); return; }
       if (!this.view || this.view.scene !== scene) this.buildView(scene);
       else this.layer(scene);
       const v = this.view, W = game.getGameResolutionWidth(), H = game.getGameResolutionHeight();
-      const key = [this.toast.id, W, H, JSON.stringify(this.style)].join('|');
+      const key = [this.toast.id, W, H, JSON.stringify(this.style), JSON.stringify(this.def(this.toast.id))].join('|');
       if (v.key !== key) { this.layout(v, this.toast.id, W, H); v.key = key; }
       const IN = 350, OUT = 350, HOLD = Math.max(0, this.style.duration) * 1000, t = now - this.toast.start;
       if (t > IN + HOLD + OUT) { this.toast = null; this.destroyView(); return; }
